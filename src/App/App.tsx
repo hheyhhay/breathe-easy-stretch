@@ -1,72 +1,70 @@
 import React, { Component } from 'react'
 import { transpileModule } from 'typescript'
 import './App.css'
+import Form from '../Form/Form'
 
 interface IState {
-  allCitiesInStateData: {
-    city: string
-    state: string
-    country: string
-    location: {
-      type: string
-      coordinates: number[]
-    }[]
-  // {"city":"Los Angeles","state":"California","country":"USA","location":{"type":"Point","coordinates":[-118.2417,34.0669]}
-  
+  selectedState: string
+  allCitiesInState: string[]
   selectedCity: string
-  error: string
-  mainPage: boolean
+  
 }
-// interface IProps {
-
-// }
-// function SelectedCity ({prop1, prop2, prop3}): IProps> {
 
 class App extends React.Component<{}, IState> {
   constructor(props: {}) {
     super(props)
     this.state = {
- 
       selectedState: '',
       allCitiesInState: [],
-      allCitiesInStateData: [{
-
-      }],
       selectedCity: '',
-      error: '',
-      mainPage: true
+      selectedCityData: {
+        city: '',
+        aqi: 0,
+        timeStamp: '',
+        temperature: 0,
+        location: []
+      },
+      otherCitiesData: [{
+        city: '',
+        aqi: 0,
+        timeStamp: '',
+        temperature: 0,
+        location: []
+      }],
+      getSelectedCityDataError: '',
+      getAllCitiesInStateDataError: ''
     }
   }
 
-  componentDidMount = () => {
-    //setCardsShow = false 
+  setData = (e: React.MouseEvent<HTMLButtonElement>) => {
    
   }
 
-  getCityData = () => {
+  getSelectedCityData = () => {
 
   }
 
-  setLocation = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // this.setState({allCitiesInState: }) --> example
-    //Take currentlocation and use API call to find  city and data 
+  getAllCitiesInStateData = () => {
+  
   }
 
   render = () => {
     return (
       <main>
         <h1>Breezy</h1>
-        <h2> -BREATHE EASY- </h2>
-        <p> Find the cleanest air around</p>
-        <button
-          onClick={() => this.setLocation(e)}>
-          Use current location
-        </button>
-        <p>or</p>
-        <Form />
+        <h2>-Breathe Easy.-</h2>
+        <p>Find the cleanest air around.</p>
+        <Form setData= {this.setData}/>
+        {/* <SelectedCity />
+        <FindCleanestAir /> */}
       </main>
     )
   }
 }
 
 export default App
+
+// interface IProps {
+
+// }
+// function SelectedCity ({prop1, prop2, prop3}): IProps> {
