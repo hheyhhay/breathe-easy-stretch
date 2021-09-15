@@ -44,7 +44,7 @@ interface CityList {
     }[]
 }
 
-export const cleanCityData = (data: CityData): CleanData => {
+export const cleanCityData = (data: CityData | string): CleanData => {
     return { 
         city: data.data.city,
         aqi: data.data.current.pollution.aqius,

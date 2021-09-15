@@ -89,7 +89,7 @@ const App: React.FunctionComponent = () => {
       <h1>Breezy</h1>
       <h2>-Breathe Easy.-</h2>
       <p>Find the cleanest air around.</p>
-        <button onClick={event => getCurrentLocationData(event: React.MouseEvent<HTMLButtonElement>)}>Use Current Location</button>
+        <button onClick={() => getCurrentLocationData()}>Use Current Location</button>
       <Form setData= {setData}/>
      
     </main>
@@ -97,7 +97,6 @@ const App: React.FunctionComponent = () => {
 }
 
 // How to Type React events?
-git
 
 export default App;
 
