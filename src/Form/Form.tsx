@@ -6,13 +6,13 @@ interface IState {
     selectedState: string,
     selecetedCity: string,
     allCitiesInState: string[],
-
 }
-
 class Form extends React.Component<{}, IState> {
     constructor(props) {
         super(props);
-        this.state = IState;
+        this.state = {
+          
+        }
     }
 }
 
