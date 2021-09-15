@@ -15,3 +15,5 @@ class Form extends React.Component<{}, IState> {
         this.state = IState;
     }
 }
+
+export default Form
