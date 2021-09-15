@@ -37,6 +37,13 @@ interface CleanData {
     location: number[]
 }
 
+interface CityList {
+    status: string
+    data: {
+        city: string
+    }[]
+}
+
 export const cleanCityData = (data: CityData): CleanData => {
     return { 
         city: data.data.city,
@@ -46,3 +53,7 @@ export const cleanCityData = (data: CityData): CleanData => {
         location: data.data.location.coordinates
       }
 }
+
+export const cleanAllCitiesData = (data: CityList): string[] => {
+    return data.data.map(city => city.city)
+  }
