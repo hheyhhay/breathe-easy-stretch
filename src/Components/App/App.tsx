@@ -1,40 +1,48 @@
 import React, { useState, useEffect } from 'react'
-import { transpileModule } from 'typescript'
+// import { transpileModule } from 'typescript'
 import './App.css'
-import { getData } from '../../utilities/apiCalls';
-import { cleanCityData } from '../../utilities/dataCleaning'
+import { getData } from '../../util/apiCalls';
+import { cleanCityData } from '../../util/dataCleaning'
 import Form from '../Form/Form'
 
-interface IState {
-  selectedState: string
-  allCitiesInState: string[]
-  selectedCity: string
-  selectedCityData: {
-    city: string
-    aqi: number
-    timeStamp: string
-    temperature: number
-    location: number[]
-  }
-  otherCitiesData: {
-    city: string
-    aqi: number
-    timeStamp: string
-    temperature: number
-    location: number[]
-  }[]
-  getSelectedCityDataError: string
-  getAllCitiesInStateDataError: string
+// interface IState {
+//   selectedState: string
+//   allCitiesInState: string[]
+//   selectedCity: string
+//   selectedCityData: {
+//     city: string
+//     aqi: number
+//     timeStamp: string
+//     temperature: number
+//     location: number[]
+//   }
+//   otherCitiesData: {
+//     city: string
+//     aqi: number
+//     timeStamp: string
+//     temperature: number
+//     location: number[]
+//   }[]
+//   getSelectedCityDataError: string
+//   getAllCitiesInStateDataError: string
+// }
+
+interface SelectedCity {
+  city: string
+  aqi: number
+  timeStamp: string
+  temperature: number
+  location: number[]
 }
 
-function App() {
-  const [selectedState, setSelectedState] = useState('')
-  const [selectedCity, setSelectedCity] = useState('')
-  const [selectedCityData, setSelectedCityData] = useState(0)  
-  const [currentOtherCity, setCurrentOtherCity] = useState('')
-  const [otherCitiesData, setOtherCitiesData] = useState([])
-  const [cityDataError, setCityDataError] = useState('')
-  const [otherCitiesDataError, setOtherCitiesDataError] = useState('')  
+const App: React.FunctionComponent = () => {
+  const [selectedState, setSelectedState] = useState<string>('')
+  const [selectedCity, setSelectedCity] = useState<string>('')
+  const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({})  
+  const [currentOtherCity, setCurrentOtherCity] = useState<string>('')
+  const [otherCitiesData, setOtherCitiesData] = useState<[]>([])
+  const [cityDataError, setCityDataError] = useState<string>('')
+  const [otherCitiesDataError, setOtherCitiesDataError] = useState<string>('')  
 
   useEffect(() => {
     if (selectedCity) {
@@ -48,7 +56,7 @@ function App() {
     }
   }, [currentOtherCity])
 
-  const setData = async (event, selectedState, selectedCity) => {
+  const setData = async (event: any, selectedState: any, selectedCity: any) => {
     event.preventDefault()
 
     setSelectedState(selectedState)
@@ -81,14 +89,16 @@ function App() {
       <h1>Breezy</h1>
       <h2>-Breathe Easy.-</h2>
       <p>Find the cleanest air around.</p>
-        <button onClick={event => getCurrentLocationData(event)}>Use Current Location</button>
+        <button onClick={event => getCurrentLocationData(event: React.MouseEvent)}>Use Current Location</button>
       <Form setData= {setData}/>
-      {/* <section>
-        <SelectedCity />
-        <FindCleanestAir />
-      </section> */}
+     
     </main>
   )
 }
 
 export default App;
+
+//  {/* <section>
+//         <SelectedCity />
+//         <FindCleanestAir />
+//       </section> */}
