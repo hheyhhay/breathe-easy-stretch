@@ -40,7 +40,7 @@ const App: React.FunctionComponent = () => {
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({})  
   const [currentOtherCity, setCurrentOtherCity] = useState<string>('')
-  const [otherCitiesData, setOtherCitiesData] = useState<[]>([])
+  const [otherCitiesData, setOtherCitiesData] = useState<SelectedCity[] | []>([])
   const [cityDataError, setCityDataError] = useState<string>('')
   const [otherCitiesDataError, setOtherCitiesDataError] = useState<string>('')  
 
@@ -56,7 +56,7 @@ const App: React.FunctionComponent = () => {
     }
   }, [currentOtherCity])
 
-  const setData = async (event: any, selectedState: any, selectedCity: any) => {
+  const setData = async (event: React.MouseEvent, selectedState: string, selectedCity: string) => {
     event.preventDefault()
 
     setSelectedState(selectedState)
@@ -89,12 +89,15 @@ const App: React.FunctionComponent = () => {
       <h1>Breezy</h1>
       <h2>-Breathe Easy.-</h2>
       <p>Find the cleanest air around.</p>
-        <button onClick={event => getCurrentLocationData(event: React.MouseEvent)}>Use Current Location</button>
+        <button onClick={event => getCurrentLocationData(event: React.MouseEvent<HTMLButtonElement>)}>Use Current Location</button>
       <Form setData= {setData}/>
      
     </main>
   )
 }
+
+// How to Type React events?
+git
 
 export default App;
 
