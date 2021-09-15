@@ -7,7 +7,22 @@ interface IState {
   selectedState: string
   allCitiesInState: string[]
   selectedCity: string
-  
+  selectedCityData: {
+    city: string
+    aqi: number
+    timeStamp: string
+    temperature: number
+    location: number[]
+  }
+  otherCitiesData: {
+    city: string
+    aqi: number
+    timeStamp: string
+    temperature: number
+    location: number[]
+  }[]
+  getSelectedCityDataError: string
+  getAllCitiesInStateDataError: string
 }
 
 class App extends React.Component<{}, IState> {
