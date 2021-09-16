@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "data": [
+      {
+          "city": "Alamosa"
+      },
+      {
+          "city": "Arvada"
+      },
+      {
+          "city": "Aspen"
+      },
+      {
+          "city": "Aurora"
+      },
+      {
+          "city": "Avon"
+      },
+      {
+          "city": "Basalt"
+      },
+      {
+          "city": "Battlement Mesa"
+      },
+      {
+          "city": "Bayfield"
+      },
+      {
+          "city": "Black Forest"
+      },
+      {
+          "city": "Boulder"
+      }
+  ]
+}
