@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Form.css';
-import { allStates } from '../util/data'
-import { getCityList } from '../apiCalls'
-import { cleanCityData, cleanAllCitiesData } from '../util/dataCleaning'
-import { isPropertySignature } from 'typescript';
+import { allStates } from '../../util/data'
+import { getCityList } from '../../apiCalls'
+import {  cleanAllCitiesData } from '../../util/dataCleaning'
+// import { isPropertySignature } from 'typescript';
 
 
 const Form = (props: any ) => {
-    const [selectedState, setSelectedState ] =useState('')
+    const [selectedState, setSelectedState ] =useState<string>('')
     const [allCitiesInState, setAllCitiesInState ] = useState<string[]>([''])
-    const [selectedCity, setSelectedCity ] = useState('')
-    const [citiesError, setCitiesError ] = useState(false)
+    const [selectedCity, setSelectedCity ] = useState<string>('')
+    const [citiesError, setCitiesError ] = useState<boolean>(false)
 
     useEffect(() => {
         if(selectedState) {
@@ -44,18 +44,19 @@ const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement> ) => {
 
 return (
     <section>
-    <form onSubmit={event => props.setData(event, selectedState, selectedCity)}>
-      <select value={selectedState} onChange={e => handleStateChange(e)}>
+    <form className='location-form' onSubmit={event => props.setData(event, selectedState, selectedCity)}>
+      <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)}>
         <option value=''>- Select a State -</option>
         { stateOptions }
       </select>
-      <select value={selectedCity} onChange={e => handleCityChange(e)}>
+      <select className='city-select' value={selectedCity} onChange={e => handleCityChange(e)}>
         <option value=''>Select a City</option>
         { cityOptions }
       </select>
-      <input type="submit" value="Show AQI" />   
+      <input type="submit" value="Show AQI" /> 
+      <button className='reset-button' onClick={event => console.log(event)}>Reset Form</button>  
     </form>
-    <button onClick={event => console.log(event)}>Reset Form</button>
+  
   </section>
 )
 }
