@@ -1,4 +1,4 @@
-export const states: string[] = [
+export const allStates: string[] = [
   'Alabama',
   'Alaska',
   'Arizona',
