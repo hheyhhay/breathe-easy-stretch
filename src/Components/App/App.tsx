@@ -1,32 +1,9 @@
 import React, { useState, useEffect } from 'react'
-// import { nodeModuleNameResolver, transpileModule } from 'typescript'
 import './App.css'
 import Form from '../Form/Form'
-// import { getCurrentOtherCityData, getCurrentLocationData, getSelectedCityData } from '../apiCalls'
 import { cleanCityData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
 
-// export interface cityData { // reaname to cityObject
-//   city: string
-//   aqi: number
-//   timeStamp: string
-//   temperature: number
-//   location: number[]
-// }
-
-// const App = () => {
-  // //Set states using Hooks
-  // const [selectedCitiesInState, setSelectedCitiesInState] =useState<cityData[]>([]) //comes from fetch
-  // const [selectedState, setSelectedState] =useState('') 
-  // const [allCitiesInState, setAllCititesInState] =useState([]); // use clean function to turn objects into an array from API call
-  // const [cityDataError, setCityDataError] =useState('');
-  // const [selectedCity, setSelectedCity] = useState<cityData[]>([])
-  // const [otherCitiesData, setOtherCitiesData] = useState([])
-
-  // const handleClick=(e: React.MouseEvent<HTMLButtonElement> ) => {
-  //   // getCurrentLocationData(e.target)
-  //   console.log(e.target)
-  // }
 
 interface SelectedCity {
     city: string
@@ -39,17 +16,17 @@ interface SelectedCity {
 const App: React.FunctionComponent = () => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
-  const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({}) 
-  const [cityDataError, setCityDataError] = useState<string>('') 
+  const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({})  
   // const [currentOtherCity, setCurrentOtherCity] = useState<string>('')
   // const [otherCitiesData, setOtherCitiesData] = useState<SelectedCity[] | []>([])
+  const [cityDataError, setCityDataError] = useState<string>('')
   // const [otherCitiesDataError, setOtherCitiesDataError] = useState<string>('')  
 
-  // useEffect(() => {
-  //   if (selectedCity) {
-  //     getSelectedCityData()
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (selectedCity) {
+      getSelectedCityData()
+    }
+  }, [])
 
   // useEffect(() => {
   //   if (currentOtherCity) {
@@ -89,14 +66,21 @@ const App: React.FunctionComponent = () => {
   // }
 
   return (
-    <main className='main'>
-      <section className='welcome-container'>
-        <h1 className='logo'>Breezy</h1>
-        <h2 className='slogan'>-Breathe Easy.-</h2>
-        <p className='guidance-text'>Find the cleanest air around.</p>
+    <main>
+       <img className='backdrop' src={'stretch-background.jpg'}></img>
+      <div className='darken-backdrop'>
+      </div>
+        <section className='welcome-container'>
+          <div className='logo-container'>
+            <h1 className='logo'>Breezy</h1>
+            <h2 className='slogan'>-Breathe Easy.-</h2>
+          </div>
+        <p className='guiding-text'>Find the cleanest air around.</p>
         <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
         <Form setData= {setData}/>
       </section>
+     
+     
     </main>
   )
 }
