@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import Form from '../Form/Form'
 // import { getCurrentOtherCityData, getCurrentLocationData, getSelectedCityData } from '../apiCalls'
-import { cleanCityData } from '../util/dataCleaning'
-import { getCityData } from '../apiCalls';
+import { cleanCityData } from '../../util/dataCleaning'
+import { getCityData } from '../../apiCalls';
 
 // export interface cityData { // reaname to cityObject
 //   city: string
@@ -28,28 +28,28 @@ import { getCityData } from '../apiCalls';
   //   console.log(e.target)
   // }
 
-  interface SelectedCity {
+interface SelectedCity {
     city: string
     aqi: number
     timeStamp: string
     temperature: number
     location: number[]
-  }
+}
   
 const App: React.FunctionComponent = () => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
-  const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({})  
+  const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({}) 
+  const [cityDataError, setCityDataError] = useState<string>('') 
   // const [currentOtherCity, setCurrentOtherCity] = useState<string>('')
   // const [otherCitiesData, setOtherCitiesData] = useState<SelectedCity[] | []>([])
-  const [cityDataError, setCityDataError] = useState<string>('')
   // const [otherCitiesDataError, setOtherCitiesDataError] = useState<string>('')  
 
-  useEffect(() => {
-    if (selectedCity) {
-      getSelectedCityData()
-    }
-  }, [selectedCity])
+  // useEffect(() => {
+  //   if (selectedCity) {
+  //     getSelectedCityData()
+  //   }
+  // }, [])
 
   // useEffect(() => {
   //   if (currentOtherCity) {
@@ -57,11 +57,14 @@ const App: React.FunctionComponent = () => {
   //   }
   // }, [currentOtherCity])
 
-  const setData = async (event: React.MouseEvent, selectedState: string, selectedCity: string) => {
+  const setData = (event: React.MouseEvent, selectedState: string, selectedCity: string) => {
     event.preventDefault()
 
     setSelectedState(selectedState)
     setSelectedCity(selectedCity)
+    if (selectedCity) {
+      getSelectedCityData()
+    }
   }
 
   const getSelectedCityData = () => {
@@ -86,12 +89,14 @@ const App: React.FunctionComponent = () => {
   // }
 
   return (
-    <main>
-      <h1>Breezy</h1>
-      <h2>-Breathe Easy.-</h2>
-      <p>Find the cleanest air around.</p>
-        <button onClick={() => getCurrentLocationData()}>Use Current Location</button>
-      <Form />
+    <main className='main'>
+      <section className='welcome-container'>
+        <h1 className='logo'>Breezy</h1>
+        <h2 className='slogan'>-Breathe Easy.-</h2>
+        <p className='guidance-text'>Find the cleanest air around.</p>
+        <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
+        <Form setData= {setData}/>
+      </section>
     </main>
   )
 }
