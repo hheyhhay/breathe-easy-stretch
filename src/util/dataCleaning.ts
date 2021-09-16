@@ -1,4 +1,4 @@
-interface CityData {
+export interface CityData {
     status: string
     data: {
         city: string
