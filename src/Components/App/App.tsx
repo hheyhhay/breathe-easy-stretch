@@ -23,7 +23,7 @@ const App: React.FunctionComponent = () => {
     if (selectedCity) {
       getSelectedCityData()
     }
-  }, [])
+  }, [selectedCity])
 
   // useEffect(() => {
   //   if (currentOtherCity) {
@@ -33,12 +33,8 @@ const App: React.FunctionComponent = () => {
 
   const setData = (event: React.MouseEvent, selectedState: string, selectedCity: string) => {
     event.preventDefault()
-
     setSelectedState(selectedState)
     setSelectedCity(selectedCity)
-    if (selectedCity) {
-      getSelectedCityData()
-    }
   }
 
   const getSelectedCityData = () => {
