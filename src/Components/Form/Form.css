@@ -5,3 +5,19 @@
     height: 100px;
     justify-content: space-between;
 }
+
+select {
+    width: 150px;
+    color: #659dbd;
+    border-radius: 5px;
+}
+
+.reset-button, .form-submit {
+    width: 150px;
+    border-radius: 5px;
+}
+
+.form-submit {
+    background-color: #659dbd;
+    color: white;
+}
