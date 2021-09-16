@@ -17,10 +17,7 @@ const App: React.FunctionComponent = () => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({})  
-  // const [currentOtherCity, setCurrentOtherCity] = useState<string>('')
-  // const [otherCitiesData, setOtherCitiesData] = useState<SelectedCity[] | []>([])
   const [cityDataError, setCityDataError] = useState<string>('')
-  // const [otherCitiesDataError, setOtherCitiesDataError] = useState<string>('')  
 
   useEffect(() => {
     if (selectedCity) {
@@ -79,8 +76,6 @@ const App: React.FunctionComponent = () => {
         <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
         <Form setData= {setData}/>
       </section>
-     
-     
     </main>
   )
 }
