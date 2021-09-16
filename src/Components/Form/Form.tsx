@@ -3,7 +3,6 @@ import './Form.css';
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
 import {  cleanAllCitiesData } from '../../util/dataCleaning'
-// import { isPropertySignature } from 'typescript';
 
 
 const Form = (props: any ) => {
@@ -31,6 +30,16 @@ const cityOptions = allCitiesInState.map((city: string, index: number) => {
     return (<option key={index} value={city}>{city}</option>)
 })
 
+const clearInputs = (event: React.MouseEvent) => {
+    event.preventDefault()
+    
+    setSelectedState('')
+    setAllCitiesInState([])
+    setSelectedCity('')
+
+    props.setData(event, '', [], '')
+  }
+
 const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement> ) => {
     e.preventDefault()
     setSelectedState(e.target.value)
@@ -53,8 +62,8 @@ return (
         <option value=''>Select a City</option>
         { cityOptions }
       </select>
-      <input type="submit" value="Show AQI" /> 
-      <button className='reset-button' onClick={event => console.log(event)}>Reset Form</button>  
+      <input className='form-submit' type='submit' value='Show AQI' /> 
+      <button className='reset-button' onClick={event => clearInputs(event)}>Reset Form</button>  
     </form>
   
   </section>
