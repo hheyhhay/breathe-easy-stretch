@@ -30,12 +30,12 @@ export interface CityData {
 }
 
 export interface CleanData {
-    city?: string
-    state?: string
-    aqi?: number
-    timeStamp?: string
-    temperature?: number
-    location?: number[]
+    city: string
+    state: string
+    aqi: number
+    timeStamp: string
+    temperature: number
+    location: number[]
 }
 
 export type CityObj = {

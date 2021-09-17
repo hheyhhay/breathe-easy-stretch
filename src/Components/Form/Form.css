@@ -1,23 +1,43 @@
+.location-container {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .location-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100px;
+    height: 60px;
     justify-content: space-between;
+    margin-top: 15px;
 }
 
 select {
     width: 150px;
     color: #659dbd;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding: 3px 5px;
+    cursor: pointer;
 }
 
 .reset-button, .form-submit {
     width: 150px;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding:  3px 5px;
 }
 
 .form-submit {
     background-color: #659dbd;
     color: white;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
 }
