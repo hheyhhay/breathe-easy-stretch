@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { Link, Route } from 'react-router-dom';
+import SelectedCity from '../SelectedCity/SelectedCity'
 import './App.css'
 import Form from '../Form/Form'
-import { cleanCityData } from '../../util/dataCleaning'
+import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
 
-
-interface SelectedCity {
-    city: string
-    aqi: number
-    timeStamp: string
-    temperature: number
-    location: number[]
-}
   
 const App: React.FunctionComponent = () => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
-  const [selectedCityData, setSelectedCityData] = useState<SelectedCity | {}>({})  
+  const [selectedCityData, setSelectedCityData] = useState<CleanData>({ })  
   const [cityDataError, setCityDataError] = useState<string>('')
 
   useEffect(() => {
@@ -31,8 +25,8 @@ const App: React.FunctionComponent = () => {
   //   }
   // }, [currentOtherCity])
 
-  const setData = (event: React.MouseEvent, selectedState: string, selectedCity: string) => {
-    event.preventDefault()
+  const setData = ( selectedState: string, selectedCity: string) => {
+ 
     setSelectedState(selectedState)
     setSelectedCity(selectedCity)
   }
@@ -58,20 +52,39 @@ const App: React.FunctionComponent = () => {
   //     .catch(error => setOtherCitiesDataError(error.message))
   // }
 
+
+  // CSS CODE TO BE PUT BACK IN
+  // <img className='backdrop' src={'stretch-background.jpg'}></img>
+  // <div className='darken-backdrop'> </div>
+
+
   return (
     <main>
-       <img className='backdrop' src={'stretch-background.jpg'}></img>
-      <div className='darken-backdrop'>
-      </div>
+      <Route exact path='/'
+      render={ () => 
         <section className='welcome-container'>
           <div className='logo-container'>
             <h1 className='logo'>Breezy</h1>
             <h2 className='slogan'>-Breathe Easy.-</h2>
           </div>
         <p className='guiding-text'>Find the cleanest air around.</p>
+        <Link
+          to={'/find-cleanest-air'}
+          >
         <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
+        </Link>
         <Form setData= {setData}/>
       </section>
+      }
+      />
+      <Route exact path={'/find-cleanest-air'}
+        render={() => 
+          <section>
+            <SelectedCity selectedCityData={selectedCityData} />
+            <Form setData = {setData} />
+          </section>
+        }
+      />
     </main>
   )
 }
