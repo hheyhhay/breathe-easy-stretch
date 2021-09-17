@@ -29,12 +29,13 @@ export interface CityData {
     }
 }
 
-interface CleanData {
-    city: string
-    aqi: number
-    timeStamp: string
-    temperature: number
-    location: number[]
+export interface CleanData {
+    city?: string
+    state?: string
+    aqi?: number
+    timeStamp?: string
+    temperature?: number
+    location?: number[]
 }
 
 export type CityObj = {
@@ -49,6 +50,7 @@ export interface CityList {
 export const cleanCityData = (data: CityData ): CleanData => {
     return { 
         city: data.data.city,
+        state: data.data.state,
         aqi: data.data.current.pollution.aqius,
         timeStamp: data.data.current.pollution.ts,
         temperature: data.data.current.weather.tp,
