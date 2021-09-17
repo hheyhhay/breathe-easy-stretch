@@ -19,12 +19,11 @@ main {
     position: absolute;
     top: 0;
     z-index: -2;
-
 }
 
 .welcome-container {
     position: absolute;
-    top: 70px;
+    top: 100px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -33,6 +32,31 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.selected-city-aside {
+    color: white;
+}
+
+.selected-city-nav {
+    height: 100vh;
+    width: 300px;
+    opacity: 85%;
+    background-color: #333333;
+    position: absolute;
+    top: 0;
+}
+
+.selected-city-container {
+    position: absolute;
+    top: 50px;
+    margin-left: 0;
+}
+
+.compare-form-container {
+    position: absolute;
+    top: 400px;
+    left: 4em;
 }
 
 .logo-container {
@@ -60,8 +84,6 @@ main {
     font-size: 25px;
     margin-bottom: 20px;
 }
-
-
 
 .current-location-button {
     background-color: green;
