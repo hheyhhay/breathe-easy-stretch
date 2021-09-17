@@ -34,6 +34,22 @@
     font-size: 2.1em;
 }
 
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
 .select-prompt {
     margin-top: 80px;
     margin-bottom: 30px;
