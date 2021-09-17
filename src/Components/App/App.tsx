@@ -10,7 +10,7 @@ import { getCityData } from '../../apiCalls';
 const App: React.FunctionComponent = () => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
-  const [selectedCityData, setSelectedCityData] = useState<CleanData>({ })  
+  const [selectedCityData, setSelectedCityData] = useState<CleanData | any>({ })  
   const [cityDataError, setCityDataError] = useState<string>('')
 
   useEffect(() => {
@@ -81,8 +81,7 @@ const App: React.FunctionComponent = () => {
           <aside className='selected-city-aside'>
             <div className='selected-city-nav'></div>
             <section className='selected-city-container'>
-              <SelectedCity selectedCityData={selectedCityData} />
-              
+              { selectedCityData && <SelectedCity selectedCityData={selectedCityData} />}
             </section>
             <div className='compare-form-container'>
                 <Form setData = {setData} />
