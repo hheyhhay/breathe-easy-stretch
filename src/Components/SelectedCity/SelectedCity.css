@@ -1,0 +1,46 @@
+.selected-city-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    width: 280px;
+    text-align: center;
+    margin: 0;
+}
+
+.location-title {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.location-info {
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+.aqi-title {
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+.aqi-timestamp {
+    margin-top: 3px;
+    font-size: 0.7em;
+}
+
+.aqi-value {
+    margin-top: 20px;
+    font-size: 2.1em;
+}
+
+.select-prompt {
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.home-button {
+    padding: 3px 5px;
+    width: 150px;
+    border-radius: 15px;
+}
