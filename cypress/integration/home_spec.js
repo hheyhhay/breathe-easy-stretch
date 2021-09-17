@@ -16,6 +16,17 @@ describe('Form to select city to see AQI data', () => {
     cy.get('.guiding-text')
       .contains('Find the cleanest air around.')
   });
+  // it('Should be able to click Use Current Location button and have current location AQI data displayed', () => {
+
+  //   cy.intercept('http://api.airvisual.com/v2/cities?state=$Colorado&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`, {
+  //     statusCode: 201,
+  //     fixture: `city_test_data.json`,
+  //   })
+  //  cy.get('.current-location-button')
+  //       .click()
+   
+  //   });
+
   
 
 })
