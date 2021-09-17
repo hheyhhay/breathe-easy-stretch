@@ -62,28 +62,35 @@ const App: React.FunctionComponent = () => {
       <img className='backdrop' src={'stretch-background.jpg'}></img>
       <div className='darken-backdrop'></div>
       <Route exact path='/'
-      render={() => 
-        <section className='welcome-container'>
-          <div className='logo-container'>
-            <h1 className='logo'>Breezy</h1>
-            <h2 className='slogan'>-Breathe Easy.-</h2>
-          </div>
-          <p className='guiding-text'>Find the cleanest air around.</p>
-          <Link to={'/find-cleanest-air'}>
-            <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
-          </Link>
-          <Form setData= {setData}/>
-        </section>
-      }
-      />
-      <Route exact path={'/find-cleanest-air'}
         render={() => 
-          <section>
-            <SelectedCity selectedCityData={selectedCityData} />
-            <Form setData = {setData} />
+          <section className='welcome-container'>
+            <div className='logo-container'>
+              <h1 className='logo'>Breezy</h1>
+              <h2 className='slogan'>-Breathe Easy.-</h2>
+            </div>
+            <p className='guiding-text'>Find the cleanest air around.</p>
+            <Link to={'/find-cleanest-air'}>
+              <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
+            </Link>
+            <Form setData= {setData}/>
           </section>
         }
       />
+      <Route exact path={'/find-cleanest-air'}
+        render={() => 
+          <aside className='selected-city-aside'>
+            <div className='selected-city-nav'></div>
+            <section className='selected-city-container'>
+              <SelectedCity selectedCityData={selectedCityData} />
+              
+            </section>
+            <div className='compare-form-container'>
+                <Form setData = {setData} />
+              </div>
+          </aside>
+        }
+      />
+    
     </main>
   )
 }
