@@ -1,0 +1,33 @@
+{
+  "status": "success",
+  "data": {
+      "city": "Aurora",
+      "state": "Colorado",
+      "country": "USA",
+      "location": {
+          "type": "Point",
+          "coordinates": [
+              -104.83192,
+              39.72943
+          ]
+      },
+      "current": {
+          "weather": {
+              "ts": "2021-09-16T14:00:00.000Z",
+              "tp": 22,
+              "pr": 1015,
+              "hu": 31,
+              "ws": 1.79,
+              "wd": 206,
+              "ic": "01d"
+          },
+          "pollution": {
+              "ts": "2021-09-16T15:00:00.000Z",
+              "aqius": 16,
+              "mainus": "p2",
+              "aqicn": 6,
+              "maincn": "p2"
+          }
+      }
+  }
+}
