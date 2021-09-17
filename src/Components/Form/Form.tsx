@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import './Form.css';
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
 import {  cleanAllCitiesData } from '../../util/dataCleaning'
 
+interface Props {
+  setData: (selectedState: string, selectedCity: string) => void
+}
 
-const Form = (props: any ) => {
+const Form: React.FC<Props> = ( { setData }  ) => {
     const [selectedState, setSelectedState ] =useState<string>('')
     const [allCitiesInState, setAllCitiesInState ] = useState<string[]>([''])
     const [selectedCity, setSelectedCity ] = useState<string>('')
@@ -36,8 +41,7 @@ const clearInputs = (event: React.MouseEvent) => {
     setSelectedState('')
     setAllCitiesInState([])
     setSelectedCity('')
-
-    props.setData(event, '', [], '')
+    setData( '', '')
   }
 
 const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement> ) => {
@@ -50,10 +54,9 @@ const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement> ) => {
     setSelectedCity(e.target.value)
 }
 
-
 return (
     <section>
-    <form className='location-form' onSubmit={event => props.setData(event, selectedState, selectedCity)}>
+    <form className='location-form' >
       <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)}>
         <option value=''>- Select a State -</option>
         { stateOptions }
@@ -62,12 +65,15 @@ return (
         <option value=''>Select a City</option>
         { cityOptions }
       </select>
-      <input className='form-submit' type='submit' value='Show AQI' /> 
-      <button className='reset-button' onClick={event => clearInputs(event)}>Reset Form</button>  
     </form>
-  
+      <Link 
+        to={'/find-cleanest-air'}
+      >
+      <button className='form-submit' onClick={()=> setData(selectedState, selectedCity)}>Show AQI</button>
+     </Link>
+      <button className='reset-button' onClick={event => clearInputs(event)}>Reset Form</button>  
   </section>
-)
+  )
 }
 
 export default Form
