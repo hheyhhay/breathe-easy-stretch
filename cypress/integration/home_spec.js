@@ -35,5 +35,16 @@ describe('Form to select city to see AQI data', () => {
     })
   });
 
+//   it('Should be able to select a state and see the cities that have available AQI data for that state', () => {
+ 
+//   });
+
+//   it('Should be able to select a city and that city selected', () => {
+ 
+//   });
+
+//  it('Should be able to select a city and have that cities AQI data displayed', () => {
+ 
+//   });
 
 })
