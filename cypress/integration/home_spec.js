@@ -27,6 +27,13 @@ describe('Form to select city to see AQI data', () => {
    
   //   });
 
-  
+  it('Should be able to select a state and have the cities with available AQI data populated', () => {
+    cy.get('.state-select').select('Colorado')
+    cy.intercept('http://api.airvisual.com/v2/cities?state=Colorado&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1', {
+      statusCode: 201,
+      fixture: `selected_city_test_data.json`,
+    })
+  });
+
 
 })
