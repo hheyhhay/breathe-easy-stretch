@@ -55,23 +55,23 @@ const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement> ) => {
 }
 
 return (
-    <section>
-    <form className='location-form' >
+    <section className='location-container'>
+    <form className='location-form'>
       <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)}>
-        <option value=''>- Select a State -</option>
+        <option value='' disabled selected>- Select a State -</option>
         { stateOptions }
       </select>
       <select className='city-select' value={selectedCity} onChange={e => handleCityChange(e)}>
-        <option value=''>Select a City</option>
+        <option value='' disabled selected>- Select a City -</option>
         { cityOptions }
       </select>
     </form>
-      <Link 
-        to={'/find-cleanest-air'}
-      >
-      <button className='form-submit' onClick={()=> setData(selectedState, selectedCity)}>Show AQI</button>
-     </Link>
+    <div className='form-buttons'>
+      <Link to={'/find-cleanest-air'}>
+          <button className='form-submit' onClick={()=> setData(selectedState, selectedCity)}>Show AQI</button>
+      </Link>
       <button className='reset-button' onClick={event => clearInputs(event)}>Reset Form</button>  
+    </div>
   </section>
   )
 }
