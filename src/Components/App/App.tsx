@@ -54,27 +54,26 @@ const App: React.FunctionComponent = () => {
 
 
   // CSS CODE TO BE PUT BACK IN
-  // <img className='backdrop' src={'stretch-background.jpg'}></img>
-  // <div className='darken-backdrop'> </div>
+
 
 
   return (
     <main>
+      <img className='backdrop' src={'stretch-background.jpg'}></img>
+      <div className='darken-backdrop'></div>
       <Route exact path='/'
-      render={ () => 
+      render={() => 
         <section className='welcome-container'>
           <div className='logo-container'>
             <h1 className='logo'>Breezy</h1>
             <h2 className='slogan'>-Breathe Easy.-</h2>
           </div>
-        <p className='guiding-text'>Find the cleanest air around.</p>
-        <Link
-          to={'/find-cleanest-air'}
-          >
-        <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
-        </Link>
-        <Form setData= {setData}/>
-      </section>
+          <p className='guiding-text'>Find the cleanest air around.</p>
+          <Link to={'/find-cleanest-air'}>
+            <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
+          </Link>
+          <Form setData= {setData}/>
+        </section>
       }
       />
       <Route exact path={'/find-cleanest-air'}
