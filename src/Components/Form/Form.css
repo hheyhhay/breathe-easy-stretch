@@ -17,7 +17,6 @@
 
 select {
     width: 150px;
-    color: #659dbd;
     border-radius: 15px;
     padding: 3px 5px;
     cursor: pointer;
@@ -27,6 +26,7 @@ select {
     width: 150px;
     border-radius: 15px;
     padding:  3px 5px;
+    cursor: pointer;
 }
 
 .form-submit {
