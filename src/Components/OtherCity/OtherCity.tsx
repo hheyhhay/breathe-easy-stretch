@@ -14,20 +14,21 @@ interface Props {
 }
 
 const OtherCity: React.FC<Props> = ({ city, state, aqi, timeStamp, temperature, location, deleteCityData, selectedCityData }) => {
-
   const aqiDifference = aqi - selectedCityData.aqi
-
   const distanceBetween = getDistance(selectedCityData.location[0], selectedCityData.location[1], location[0], location[1])
 
   return (
-    <article>
+    <article className='other-city-card'>
       <h3>{`${city}, ${state}`}</h3>
-      <p>{aqi} AQI</p>
-      {aqiDifference < 0 ? <p>{`${Math.abs(aqiDifference)} AQI less than ${selectedCityData.city}`}</p> : <p>{`${Math.abs(aqiDifference)} AQI more than ${selectedCityData.city}`}</p>}
-      <p>{temperature} F</p>
       <p>{`Last Updated ${timeStamp}`}</p>
-      <p>{`${distanceBetween} miles from your city`}</p>
-      <button onClick={() => deleteCityData(location)}>🗑</button>
+      <p>{aqi} AQI</p>
+      {aqiDifference < 0 ? 
+        <p>{`${Math.abs(aqiDifference)} AQI less than ${selectedCityData.city}`}</p> : 
+        <p>{`${Math.abs(aqiDifference)} AQI more than ${selectedCityData.city}`}</p>
+      }
+      <p>{temperature} F</p>
+      <p>{`${distanceBetween} mi away`}</p>
+      <button onClick={() => deleteCityData(location)}>X</button>
     </article>
   ) 
 }
