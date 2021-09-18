@@ -9,7 +9,7 @@ interface Props {
   selectedCityData: any
 }
 
-const OtherCities: React.FC<Props> = ({ otherCitiesData, deleteCityData, selectedCityData}) => {
+const OtherCities: React.FC<Props> = ({ otherCitiesData, deleteCityData, selectedCityData }) => {
   
   const otherCityCards = otherCitiesData.map(otherCity => {
     return (
@@ -20,7 +20,7 @@ const OtherCities: React.FC<Props> = ({ otherCitiesData, deleteCityData, selecte
         timeStamp={otherCity.timeStamp}
         temperature={otherCity.temperature}
         location={otherCity.location}
-        key={otherCity.location}
+        key={otherCity.location.join('')}
         deleteCityData={deleteCityData}
         selectedCityData={selectedCityData}
       />
