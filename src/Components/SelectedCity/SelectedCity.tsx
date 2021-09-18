@@ -21,7 +21,7 @@ const SelectedCity: React.FC<Props> = ({ selectedCityData, resetCityData }) => {
       { (aqi >= 51 && aqi < 101) && <div><h3 className='aqi-value yellow'>{`${aqi} AQI`}</h3><p className='aqi-rating yellow'>Moderate</p></div> }
       { (aqi >= 101 && aqi < 151) && <div><h3 className='aqi-value orange'>{`${aqi} AQI`}</h3><p className='aqi-rating orange'>Sensitive</p></div>}
       { aqi >= 151 && <div><h3 className='aqi-value red'>{`${aqi} AQI`}</h3><p className='aqi-rating red'>Unhealthy</p></div> }
-      <p className='temp-value'>{`${temperature}°F`}</p>
+      <h3 className='temp-value'>{`${temperature}°F`}</h3>
       <p className='select-prompt'>Pick a city to compare</p>
       <Link to={`/`}>
         <button className='home-button' onClick={() => resetCityData()}>Return Home</button>
