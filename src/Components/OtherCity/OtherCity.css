@@ -1,3 +1,46 @@
 .other-city-card {
-  color:black;
+  color: black;
+}
+
+.other-city-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 0.5);
+  width: 17vw;
+  height: 15em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.other-city-location, .aqi-difference {
+  max-width: 16vw;
+}
+
+.other-city-timestamp {
+  font-size: 0.7em;
+  margin-top: 3px;
+}
+
+.temp-aqi-group {
+  display: flex;
+  justify-content: space-around;
+  width: 13vw;
+}
+
+.other-city-aqi, .other-city-temp {
+  font-weight: 500;
+  font-size: 1.7em;
+}
+
+.delete-other-city {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  border: 0px;
+  background-color: white;
+  cursor: pointer;
 }
