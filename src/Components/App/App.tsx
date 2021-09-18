@@ -1,40 +1,27 @@
-import React, { useState, useEffect } from 'react'
-import { Link, Route } from 'react-router-dom';
-import SelectedCity from '../SelectedCity/SelectedCity'
+import React, { useState } from 'react'
 import './App.css'
 import Form from '../Form/Form'
+import SelectedCity from '../SelectedCity/SelectedCity'
+import { Link, Route } from 'react-router-dom';
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
 
   
 const App: React.FunctionComponent = () => {
-  const [selectedState, setSelectedState] = useState<string>('')
-  const [selectedCity, setSelectedCity] = useState<string>('')
   const [selectedCityData, setSelectedCityData] = useState<CleanData | any>({ })  
+  const [otherCitiesData, setOtherCitiesData] = useState<CleanData[]>([])
   const [cityDataError, setCityDataError] = useState<string>('')
 
-  useEffect(() => {
-    if (selectedCity) {
-      getSelectedCityData()
-    }
-  }, [selectedCity])
-
-  // useEffect(() => {
-  //   if (currentOtherCity) {
-  //     getCurrentOtherCityData()
-  //   }
-  // }, [currentOtherCity])
-
-  const setData = ( selectedState: string, selectedCity: string) => {
- 
-    setSelectedState(selectedState)
-    setSelectedCity(selectedCity)
-  }
-
-  const getSelectedCityData = () => {
+  const getSelectedCityData = (selectedState, selectedCity) => {
     getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
       .then(data => cleanCityData(data))
-      .then(data => setSelectedCityData(data))
+      .then(data => {
+        if (!selectedCityData) {
+          setSelectedCityData(data)
+        } else {
+          setOtherCitiesData([...otherCitiesData, data].sort((a, b) => a.aqi - b.aqi))
+        }
+      })
       .catch(error => setCityDataError(error.message))
   }
 
@@ -45,17 +32,7 @@ const App: React.FunctionComponent = () => {
       .catch(error => setCityDataError(error.message))
   }
 
-  // const getCurrentOtherCityData = () => {
-  //   getCityData(`http://api.airvisual.com/v2/city?city=${currentOtherCity}&state=${selectedState}&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
-  //     .then(data => cleanCityData(data))
-  //     .then(data => setOtherCitiesData(...otherCitiesData, data))
-  //     .catch(error => setOtherCitiesDataError(error.message))
-  // }
-
-
-  // CSS CODE TO BE PUT BACK IN
-
-
+ 
 
   return (
     <main>
