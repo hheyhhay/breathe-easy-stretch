@@ -32,7 +32,11 @@ const App: React.FunctionComponent = () => {
       .catch(error => setCityDataError(error.message))
   }
 
- 
+  const deleteCityData = (id) => {
+    const filteredOtherCities = otherCitiesData.filter(city => city.location !== id)
+
+    setOtherCitiesData(filteredOtherCities)
+  }
 
   return (
     <main>
