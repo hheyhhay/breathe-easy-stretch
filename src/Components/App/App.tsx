@@ -13,7 +13,7 @@ const App: React.FunctionComponent = () => {
   const [otherCitiesData, setOtherCitiesData] = useState<CleanData[]>([])
   const [cityDataError, setCityDataError] = useState<string>('')
 
-  const getSelectedCityData = (selectedState, selectedCity) => {
+  const getSelectedCityData = (selectedState: string, selectedCity: string) => {
     getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
       .then(data => cleanCityData(data))
       .then(data => {
@@ -33,7 +33,7 @@ const App: React.FunctionComponent = () => {
       .catch(error => setCityDataError(error.message))
   }
 
-  const deleteCityData = (id) => {
+  const deleteCityData = (id: number[]) => {
     const filteredOtherCities = otherCitiesData.filter(city => city.location !== id)
 
     setOtherCitiesData(filteredOtherCities)
@@ -76,7 +76,7 @@ const App: React.FunctionComponent = () => {
               />
             </section>
             <div className='compare-form-container'>
-              <Form setData = {setData} />
+              <Form getSelectedCityData={getSelectedCityData} />
             </div>
             <OtherCities 
               otherCitiesData={otherCitiesData} 
