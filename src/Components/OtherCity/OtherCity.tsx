@@ -19,16 +19,21 @@ const OtherCity: React.FC<Props> = ({ city, state, aqi, timeStamp, temperature, 
 
   return (
     <article className='other-city-card'>
-      <h3>{`${city}, ${state}`}</h3>
-      <p>{`Last Updated ${timeStamp}`}</p>
-      <p>{aqi} AQI</p>
+      <div className='location-timestamp-group'>
+        <h3 className='other-city-location'>{`${city}, ${state}`}</h3>
+        <p className='other-city-timestamp'>{`Last Updated ${timeStamp}`}</p>
+      </div>
+      <div className='temp-aqi-group'>
+        <p className='other-city-aqi'>{aqi} AQI</p>
+        <p className='other-city-temp'>{temperature}°F</p>
+      </div>
       {aqiDifference < 0 ? 
-        <p>{`${Math.abs(aqiDifference)} AQI less than ${selectedCityData.city}`}</p> : 
-        <p>{`${Math.abs(aqiDifference)} AQI more than ${selectedCityData.city}`}</p>
+        <p className='aqi-difference green'>{`▼ ${Math.abs(aqiDifference)} AQI less than ${selectedCityData.city}`}</p> : 
+        <p className='aqi-difference red'>{`▲ ${Math.abs(aqiDifference)} AQI more than ${selectedCityData.city}`}</p>
       }
-      <p>{temperature} F</p>
-      <p>{`${distanceBetween} mi away`}</p>
-      <button onClick={() => deleteCityData(location)}>X</button>
+     
+      <p className='other-city-distance'>{`${distanceBetween} mi away`}</p>
+      <button className='delete-other-city' onClick={() => deleteCityData(location)}>X</button>
     </article>
   ) 
 }

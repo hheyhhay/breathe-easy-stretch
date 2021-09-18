@@ -17,7 +17,6 @@
 
 select {
     width: 150px;
-    color: #659dbd;
     border-radius: 15px;
     padding: 3px 5px;
     cursor: pointer;
@@ -27,6 +26,8 @@ select {
     width: 150px;
     border-radius: 15px;
     padding:  3px 5px;
+    cursor: pointer;
+    border: 0px;
 }
 
 .form-submit {
@@ -38,6 +39,7 @@ select {
     display: flex;
     flex-direction: column;
     height: 60px;
+    margin-top: 10px;
     align-items: center;
     justify-content: space-between;
 }

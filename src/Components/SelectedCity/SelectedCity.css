@@ -29,7 +29,7 @@
     font-size: 0.7em;
 }
 
-.aqi-value {
+.aqi-value, .temp-value {
     margin-top: 20px;
     font-size: 2.1em;
 }
@@ -59,4 +59,9 @@
     padding: 3px 5px;
     width: 150px;
     border-radius: 15px;
+    position: absolute;
+    top: 480px;
+    right: 65px;
+    cursor: pointer;
+    border: 0px;
 }

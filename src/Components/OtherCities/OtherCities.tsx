@@ -28,7 +28,7 @@ const OtherCities: React.FC<Props> = ({ otherCitiesData, deleteCityData, selecte
   })
 
   return (
-    <section>
+    <section className='other-cities-container'>
       {otherCityCards}
     </section>
   )
