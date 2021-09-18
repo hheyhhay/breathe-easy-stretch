@@ -27,7 +27,7 @@ const Form: React.FC<Props> = ({ getSelectedCityData }) => {
   }
 
   const getCities = () => {
-    getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
+    getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=2140c86a-f358-4a84-b8d6-aa447b9fc812`)
     .then(data => cleanAllCitiesData(data))
     .then(data => setAllCitiesInState(data))
     .catch(error => setCitiesError(error.message))
