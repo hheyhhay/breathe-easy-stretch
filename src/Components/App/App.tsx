@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import Form from '../Form/Form'
 import SelectedCity from '../SelectedCity/SelectedCity'
+import OtherCities from '../OtherCities/OtherCities'
 import { Link, Route } from 'react-router-dom';
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
@@ -67,11 +68,25 @@ const App: React.FunctionComponent = () => {
           <nav className='selected-city-nav'>
             <div className='selected-city-shading'></div>
             <section className='selected-city-container'>
-              { selectedCityData && <SelectedCity selectedCityData={selectedCityData} />}
+              <SelectedCity 
+                selectedCityData={selectedCityData} 
+                resetCityData={resetCityData}
+              />
             </section>
             <div className='compare-form-container'>
-                <Form setData = {setData} />
-              </div>
+              <Form setData = {setData} />
+            </div>
+            <OtherCities 
+              otherCitiesData={otherCitiesData} 
+              deleteCityData={deleteCityData} 
+              selectedCityData={
+                {
+                  city: selectedCityData.city, 
+                  location: selectedCityData.location, 
+                  aqi: selectedCityData.aqi
+                }
+              } 
+            />
           </nav>
         }
       />
