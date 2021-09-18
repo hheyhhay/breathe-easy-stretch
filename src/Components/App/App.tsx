@@ -1,66 +1,54 @@
-import React, { useState, useEffect } from 'react'
-import { Link, Route } from 'react-router-dom';
-import SelectedCity from '../SelectedCity/SelectedCity'
+import React, { useState } from 'react'
 import './App.css'
 import Form from '../Form/Form'
+import SelectedCity from '../SelectedCity/SelectedCity'
+import OtherCities from '../OtherCities/OtherCities'
+import { Link, Route } from 'react-router-dom';
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
 
   
 const App: React.FunctionComponent = () => {
-  const [selectedState, setSelectedState] = useState<string>('')
-  const [selectedCity, setSelectedCity] = useState<string>('')
   const [selectedCityData, setSelectedCityData] = useState<CleanData | any>({ })  
+  const [otherCitiesData, setOtherCitiesData] = useState<CleanData[]>([])
   const [cityDataError, setCityDataError] = useState<string>('')
 
-  useEffect(() => {
-    if (selectedCity) {
-      getSelectedCityData()
-    }
-  }, [selectedCity])
-
-  // useEffect(() => {
-  //   if (currentOtherCity) {
-  //     getCurrentOtherCityData()
-  //   }
-  // }, [currentOtherCity])
-
-  const setData = ( selectedState: string, selectedCity: string) => {
- 
-    setSelectedState(selectedState)
-    setSelectedCity(selectedCity)
-  }
-
-  const getSelectedCityData = () => {
-    getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
+  const getSelectedCityData = (selectedState: string, selectedCity: string) => {
+    getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=2140c86a-f358-4a84-b8d6-aa447b9fc812`)
       .then(data => cleanCityData(data))
-      .then(data => setSelectedCityData(data))
+      .then(data => {
+        if (!selectedCityData) {
+          setSelectedCityData(data)
+        } else {
+          setOtherCitiesData([...otherCitiesData, data].sort((a, b) => a.aqi - b.aqi))
+        }
+      })
       .catch(error => setCityDataError(error.message))
   }
 
   const getCurrentLocationData = () => {
-    getCityData(`http://api.airvisual.com/v2/nearest_city?key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
+    getCityData(`http://api.airvisual.com/v2/nearest_city?key=2140c86a-f358-4a84-b8d6-aa447b9fc812`)
       .then(data => cleanCityData(data))
       .then(data => setSelectedCityData(data))
       .catch(error => setCityDataError(error.message))
   }
 
-  // const getCurrentOtherCityData = () => {
-  //   getCityData(`http://api.airvisual.com/v2/city?city=${currentOtherCity}&state=${selectedState}&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
-  //     .then(data => cleanCityData(data))
-  //     .then(data => setOtherCitiesData(...otherCitiesData, data))
-  //     .catch(error => setOtherCitiesDataError(error.message))
-  // }
+  const deleteCityData = (id: number[]) => {
+    const filteredOtherCities = otherCitiesData.filter(city => city.location !== id)
 
+    setOtherCitiesData(filteredOtherCities)
+  }
 
-  // CSS CODE TO BE PUT BACK IN
-
-
+  const resetCityData = () => {
+    setSelectedCityData(0)
+    setOtherCitiesData([])
+  }
 
   return (
     <main>
       <img className='backdrop' src={'stretch-background.jpg'}></img>
       <div className='darken-backdrop'></div>
+      
       <Route exact path='/'
         render={() => 
           <section className='welcome-container'>
@@ -72,24 +60,38 @@ const App: React.FunctionComponent = () => {
             <Link to={'/find-cleanest-air'}>
               <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
             </Link>
-            <Form setData= {setData}/>
+            <Form getSelectedCityData={getSelectedCityData}/>
           </section>
         }
       />
+
       <Route exact path={'/find-cleanest-air'}
         render={() => 
-          <aside className='selected-city-aside'>
-            <div className='selected-city-nav'></div>
+          <nav className='selected-city-nav'>
+            <div className='selected-city-shading'></div>
             <section className='selected-city-container'>
-              { selectedCityData && <SelectedCity selectedCityData={selectedCityData} />}
+              <SelectedCity 
+                selectedCityData={selectedCityData} 
+                resetCityData={resetCityData}
+              />
             </section>
             <div className='compare-form-container'>
-                <Form setData = {setData} />
-              </div>
-          </aside>
+              <Form getSelectedCityData={getSelectedCityData} />
+            </div>
+            <OtherCities 
+              otherCitiesData={otherCitiesData} 
+              deleteCityData={deleteCityData} 
+              selectedCityData={
+                {
+                  city: selectedCityData.city, 
+                  location: selectedCityData.location, 
+                  aqi: selectedCityData.aqi
+                }
+              } 
+            />
+          </nav>
         }
       />
-    
     </main>
   )
 }
