@@ -48,6 +48,7 @@ const App: React.FunctionComponent = () => {
     <main>
       <img className='backdrop' src={'stretch-background.jpg'}></img>
       <div className='darken-backdrop'></div>
+      
       <Route exact path='/'
         render={() => 
           <section className='welcome-container'>
@@ -63,6 +64,7 @@ const App: React.FunctionComponent = () => {
           </section>
         }
       />
+
       <Route exact path={'/find-cleanest-air'}
         render={() => 
           <nav className='selected-city-nav'>
@@ -90,7 +92,6 @@ const App: React.FunctionComponent = () => {
           </nav>
         }
       />
-    
     </main>
   )
 }
