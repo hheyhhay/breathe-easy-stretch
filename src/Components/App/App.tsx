@@ -38,6 +38,11 @@ const App: React.FunctionComponent = () => {
     setOtherCitiesData(filteredOtherCities)
   }
 
+  const resetCityData = () => {
+    setSelectedCityData(0)
+    setOtherCitiesData([])
+  }
+
   return (
     <main>
       <img className='backdrop' src={'stretch-background.jpg'}></img>
