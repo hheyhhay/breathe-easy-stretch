@@ -34,11 +34,11 @@ main {
     align-items: center;
 }
 
-.selected-city-aside {
+.selected-city-nav {
     color: white;
 }
 
-.selected-city-nav {
+.selected-city-shading {
     height: 100vh;
     width: 300px;
     opacity: 85%;
