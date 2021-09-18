@@ -58,21 +58,21 @@ const App: React.FunctionComponent = () => {
             <Link to={'/find-cleanest-air'}>
               <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
             </Link>
-            <Form setData= {setData}/>
+            <Form getSelectedCityData={getSelectedCityData}/>
           </section>
         }
       />
       <Route exact path={'/find-cleanest-air'}
         render={() => 
-          <aside className='selected-city-aside'>
-            <div className='selected-city-nav'></div>
+          <nav className='selected-city-nav'>
+            <div className='selected-city-shading'></div>
             <section className='selected-city-container'>
               { selectedCityData && <SelectedCity selectedCityData={selectedCityData} />}
             </section>
             <div className='compare-form-container'>
                 <Form setData = {setData} />
               </div>
-          </aside>
+          </nav>
         }
       />
     
