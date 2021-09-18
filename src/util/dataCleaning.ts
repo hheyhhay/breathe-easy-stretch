@@ -55,7 +55,7 @@ export const cleanCityData = (data: CityData ): CleanData => {
     state: data.data.state,
     aqi: data.data.current.pollution.aqius,
     timeStamp: dayjs(data.data.current.pollution.ts).format('MM/DD/YYYY'),
-    temperature: data.data.current.weather.tp * 9 / 5 + 32,
+    temperature: Math.round(data.data.current.weather.tp * 9 / 5 + 32),
     location: data.data.location.coordinates
   }
 }
