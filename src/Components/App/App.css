@@ -45,6 +45,7 @@ main {
   background-color: #333333;
   position: absolute;
   top: 0;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.5);
 }
 
 .selected-city-container {
@@ -55,7 +56,7 @@ main {
 
 .compare-form-container {
   position: absolute;
-  top: 360px;
+  top: 370px;
   left: 4em;
 }
 
