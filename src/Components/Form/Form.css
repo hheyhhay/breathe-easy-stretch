@@ -27,6 +27,7 @@ select {
     border-radius: 15px;
     padding:  3px 5px;
     cursor: pointer;
+    border: 0px;
 }
 
 .form-submit {
