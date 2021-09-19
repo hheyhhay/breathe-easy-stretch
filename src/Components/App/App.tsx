@@ -28,6 +28,12 @@ const App: React.FunctionComponent = () => {
     }
   }
 
+  const checkSortData = (data: CleanData) => {
+    if (!otherCitiesData.includes(data)) {
+      setOtherCitiesData([...otherCitiesData, data].sort((a, b) => a.aqi - b.aqi))
+    }
+  }
+
   const getCurrentLocationData = () => {
     getCityData(`http://api.airvisual.com/v2/nearest_city?key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
       .then(data => cleanCityData(data))
