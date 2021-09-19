@@ -73,8 +73,6 @@ const App: React.FunctionComponent = () => {
               <Error 
                 dataContents='AQI data for available cities in that state'
                 message={citiesError}
-                linkPath=''
-                buttonMessage='Try to Return Home'
               />
             :
               <section className='welcome-container'>
@@ -104,8 +102,6 @@ const App: React.FunctionComponent = () => {
               <Error 
                 dataContents='AQI data for your city'
                 message={cityDataError}
-                linkPath=''
-                buttonMessage='Return Home'
               />
             : !selectedCityData ?
               <Loading />
