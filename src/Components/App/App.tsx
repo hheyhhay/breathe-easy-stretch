@@ -16,14 +16,16 @@ const App: React.FunctionComponent = () => {
   const getSelectedCityData = (selectedState: string, selectedCity: string) => {
     getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
       .then(data => cleanCityData(data))
-      .then(data => {
-        if (!selectedCityData) {
-          setSelectedCityData(data)
-        } else {
-          setOtherCitiesData([...otherCitiesData, data].sort((a, b) => a.aqi - b.aqi))
-        }
-      })
+      .then(data => addSelectedOrOtherCity(data))
       .catch(error => setCityDataError(error.message))
+  }
+
+  const addSelectedOrOtherCity = (data: CleanData) => {
+    if (!selectedCityData) {
+      setSelectedCityData(data)
+    } else {
+      checkSortData(data)
+    }
   }
 
   const getCurrentLocationData = () => {
