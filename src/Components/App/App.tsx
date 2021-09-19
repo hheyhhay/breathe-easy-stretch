@@ -12,6 +12,7 @@ const App: React.FunctionComponent = () => {
   const [selectedCityData, setSelectedCityData] = useState<CleanData | any>(0)  
   const [otherCitiesData, setOtherCitiesData] = useState<CleanData[]>([])
   const [cityDataError, setCityDataError] = useState<string>('')
+  const [duplicateCityError, setDuplicateCityError] = useState<string>('')
 
   const getSelectedCityData = (selectedState: string, selectedCity: string) => {
     getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
@@ -29,8 +30,15 @@ const App: React.FunctionComponent = () => {
   }
 
   const checkSortData = (data: CleanData) => {
-    if (!otherCitiesData.includes(data)) {
+    const checkIfIncludesCity = otherCitiesData.filter(otherCity => otherCity.city === data.city)
+
+    if (!checkIfIncludesCity.length) {
       setOtherCitiesData([...otherCitiesData, data].sort((a, b) => a.aqi - b.aqi))
+    } else {
+      setDuplicateCityError('This city is already being compared.')
+      setTimeout(() => {
+        setDuplicateCityError('')
+      }, 3000);
     }
   }
 
@@ -68,7 +76,10 @@ const App: React.FunctionComponent = () => {
             <Link to={'/find-cleanest-air'}>
               <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
             </Link>
-            <Form getSelectedCityData={getSelectedCityData}/>
+            <Form 
+              getSelectedCityData={getSelectedCityData}
+              duplicateCityError={duplicateCityError} 
+            />
           </section>
         }
       />
@@ -84,7 +95,9 @@ const App: React.FunctionComponent = () => {
               />
             </section>
             <div className='compare-form-container'>
-              <Form getSelectedCityData={getSelectedCityData} />
+              <Form 
+                getSelectedCityData={getSelectedCityData} duplicateCityError={duplicateCityError} 
+              />
             </div>
             <OtherCities 
               otherCitiesData={otherCitiesData} 
