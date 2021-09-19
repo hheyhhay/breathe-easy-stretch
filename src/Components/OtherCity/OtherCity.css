@@ -1,8 +1,5 @@
 .other-city-card {
   color: black;
-}
-
-.other-city-card {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 1px 5px rgb(0 0 0 / 0.5);
@@ -41,6 +38,64 @@
   top: 7px;
   right: 10px;
   border: 0px;
+  font-size: 1.1em;
   background-color: white;
   cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .other-city-card {
+    width: 90vw;
+    height: 12em;
+    font-size: 0.7em;
+    text-align: center;
+  }
+
+  .delete-other-city {
+    width: 1em;
+  }
+
+  .other-city-location {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .other-city-location, .aqi-difference {
+    max-width: 80vw;
+  }
+
+  .other-city-timestamp {
+    position: absolute;
+    top: 4em;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .other-city-aqi {
+    position: absolute;
+    top: 3em;
+    margin-left: auto;
+    margin-right: 40vw;
+  }
+
+  .other-city-temp {
+    position: absolute;
+    top: 3em;
+    margin-left: 40vw;
+    margin-right: auto;
+  }
+
+  .distance-difference-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 70vw;
+  }
 }
