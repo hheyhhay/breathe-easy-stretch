@@ -65,3 +65,59 @@
     cursor: pointer;
     border: 0px;
 }
+
+@media screen and (max-width: 480px) {
+    .selected-city-card {
+        width: 80vw;
+    }
+    .location-title {
+        font-size: 1em;
+        font-weight: 500;
+        margin-right: 0.4em;
+    }
+    
+    .location-info {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .aqi-title {
+        margin-top: 15px;
+        font-size: 1em;
+    }
+    
+    .aqi-timestamp {
+        margin-top: 2px;
+        font-size: 0.7em;
+    }
+    
+    .aqi-value, .temp-value {
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+
+    .aqi-temp-group {
+        display: flex;
+        flex-direction: row;
+        width: 70vw;
+        justify-content: space-evenly;
+    }
+
+    .location-group {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .select-prompt {
+        margin-top: 2em;
+    }
+
+    .home-button {
+        width: 60vw;
+        top: 21em;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

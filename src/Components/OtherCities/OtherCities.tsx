@@ -28,9 +28,10 @@ const OtherCities: React.FC<Props> = ({ otherCitiesData, deleteCityData, selecte
   })
 
   return (
-    <section className='other-cities-container'>
-      {otherCityCards}
-    </section>
+    <div>
+      {otherCityCards.length > 0 && 
+      <section className='other-cities-container'>{otherCityCards}</section>}
+    </div>
   )
 }
 

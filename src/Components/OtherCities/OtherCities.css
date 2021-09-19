@@ -6,3 +6,16 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
 }
+
+@media screen and (max-width: 480px) {
+  .other-cities-container {
+    top: 26em;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
