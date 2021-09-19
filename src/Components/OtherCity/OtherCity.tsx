@@ -2,7 +2,7 @@ import React from 'react'
 import './OtherCity.css'
 import { getDistance } from '../../util/distanceFormula'
 
-interface Props {
+interface PropsOtherCity {
   city: string
   state: string
   aqi: number
@@ -13,7 +13,7 @@ interface Props {
   selectedCityData: any
 }
 
-const OtherCity: React.FC<Props> = ({ city, state, aqi, timeStamp, temperature, location, deleteCityData, selectedCityData }) => {
+const OtherCity: React.FC<PropsOtherCity> = ({ city, state, aqi, timeStamp, temperature, location, deleteCityData, selectedCityData }) => {
   const aqiDifference = aqi - selectedCityData.aqi
   const distanceBetween = getDistance(selectedCityData.location[0], selectedCityData.location[1], location[0], location[1])
 

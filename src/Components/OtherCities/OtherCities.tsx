@@ -3,13 +3,13 @@ import './OtherCities.css'
 import OtherCity from '../OtherCity/OtherCity'
 import { CleanData } from '../../util/dataCleaning'
 
-interface Props {
+interface PropsOtherCities {
   otherCitiesData: CleanData[]
   deleteCityData: any
   selectedCityData: any
 }
 
-const OtherCities: React.FC<Props> = ({ otherCitiesData, deleteCityData, selectedCityData }) => {
+const OtherCities: React.FC<PropsOtherCities> = ({ otherCitiesData, deleteCityData, selectedCityData }) => {
   
   const otherCityCards = otherCitiesData.map(otherCity => {
     return (

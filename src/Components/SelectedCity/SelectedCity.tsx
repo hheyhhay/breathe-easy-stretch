@@ -3,12 +3,12 @@ import './SelectedCity.css';
 import { Link } from 'react-router-dom';
 import { CleanData } from '../../util/dataCleaning';
 
-interface Props {
+interface PropsSelectedCity {
     selectedCityData: CleanData
     resetCityData: any
 }
 
-const SelectedCity: React.FC<Props> = ({ selectedCityData, resetCityData }) => {
+const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCityData }) => {
   const {city, state, timeStamp, aqi, temperature} = selectedCityData
 
   return (
