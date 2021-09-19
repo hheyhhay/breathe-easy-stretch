@@ -27,7 +27,7 @@ const Form: React.FC<Props> = ({ getSelectedCityData }) => {
   }
 
   const getCities = () => {
-    getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=2140c86a-f358-4a84-b8d6-aa447b9fc812`)
+    getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
     .then(data => cleanAllCitiesData(data))
     .then(data => setAllCitiesInState(data))
     .catch(error => setCitiesError(error.message))
@@ -53,11 +53,11 @@ const Form: React.FC<Props> = ({ getSelectedCityData }) => {
   return (
     <section className='location-container'>
       <form className='location-form'>
-        <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)}>
+        <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)} required>
           <option value='' disabled selected>- Select a State -</option>
           { stateOptions }
         </select>
-        <select className='city-select' value={selectedCity} onChange={e => handleCityChange(e)}>
+        <select className='city-select' value={selectedCity} onChange={e => handleCityChange(e)} required>
           <option value='' disabled selected>- Select a City -</option>
           { cityOptions }
         </select>
