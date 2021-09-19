@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import './App.css'
+import Error from '../Error/Error'
+import Loading from '../Loading/Loading'
 import Form from '../Form/Form'
 import SelectedCity from '../SelectedCity/SelectedCity'
 import OtherCities from '../OtherCities/OtherCities'
 import { Link, Route } from 'react-router-dom';
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
-
   
 const App: React.FunctionComponent = () => {
   const [selectedCityData, setSelectedCityData] = useState<CleanData | any>(0)  
   const [otherCitiesData, setOtherCitiesData] = useState<CleanData[]>([])
+  const [citiesError, setCitiesError] = useState<string>('')
   const [cityDataError, setCityDataError] = useState<string>('')
   const [duplicateCityError, setDuplicateCityError] = useState<string>('')
 
@@ -62,55 +64,80 @@ const App: React.FunctionComponent = () => {
 
   return (
     <main>
-      <img className='backdrop' src={'stretch-background.jpg'}></img>
+      <img className='backdrop' alt='sunset-backdrop' src={'stretch-background.jpg'}></img>
       <div className='darken-backdrop'></div>
-      
       <Route exact path='/'
         render={() => 
-          <section className='welcome-container'>
-            <div className='logo-container'>
-              <h1 className='logo'>Breezy</h1>
-              <h2 className='slogan'>-Breathe Easy.-</h2>
-            </div>
-            <p className='guiding-text'>Find the cleanest air around.</p>
-            <Link to={'/find-cleanest-air'}>
-              <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
-            </Link>
-            <Form 
-              getSelectedCityData={getSelectedCityData}
-              duplicateCityError={duplicateCityError} 
-            />
-          </section>
+          <>
+            {citiesError ?
+              <Error 
+                dataContents='AQI data for available cities in that state'
+                message={citiesError}
+                linkPath=''
+                buttonMessage='Try to Return Home'
+              />
+            :
+              <section className='welcome-container'>
+                <div className='logo-container'>
+                  <h1 className='logo'>Breezy</h1>
+                  <h2 className='slogan'>-Breathe Easy.-</h2>
+                </div>
+                <p className='guiding-text'>Find the cleanest air around.</p>
+                <Link to={'/find-cleanest-air'}>
+                  <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
+                </Link>
+                <Form 
+                  setCitiesError={setCitiesError}
+                  getSelectedCityData={getSelectedCityData}
+                  duplicateCityError={duplicateCityError} 
+                />
+              </section>
+            }
+          </>
         }
       />
 
       <Route exact path={'/find-cleanest-air'}
         render={() => 
-          <nav className='selected-city-nav'>
-            <div className='selected-city-shading'></div>
-            <section className='selected-city-container'>
-              <SelectedCity 
-                selectedCityData={selectedCityData} 
-                resetCityData={resetCityData}
+          <>
+            {cityDataError ?
+              <Error 
+                dataContents='AQI data for your city'
+                message={cityDataError}
+                linkPath=''
+                buttonMessage='Return Home'
               />
-            </section>
-            <div className='compare-form-container'>
-              <Form 
-                getSelectedCityData={getSelectedCityData} duplicateCityError={duplicateCityError} 
-              />
-            </div>
-            <OtherCities 
-              otherCitiesData={otherCitiesData} 
-              deleteCityData={deleteCityData} 
-              selectedCityData={
-                {
-                  city: selectedCityData.city, 
-                  location: selectedCityData.location, 
-                  aqi: selectedCityData.aqi
-                }
-              } 
-            />
-          </nav>
+            : !selectedCityData ?
+              <Loading />
+            :
+              <nav className='selected-city-nav'>
+                <div className='selected-city-shading'></div>
+                <section className='selected-city-container'>
+                  <SelectedCity 
+                    selectedCityData={selectedCityData} 
+                    resetCityData={resetCityData}
+                  />
+                </section>
+                <div className='compare-form-container'>
+                  <Form 
+                    setCitiesError={setCitiesError}
+                    getSelectedCityData={getSelectedCityData} duplicateCityError={duplicateCityError} 
+                  />
+                </div>
+                <OtherCities 
+                  otherCitiesData={otherCitiesData} 
+                  deleteCityData={deleteCityData} 
+                  selectedCityData={
+                    {
+                      city: selectedCityData.city, 
+                      location: selectedCityData.location, 
+                      aqi: selectedCityData.aqi
+                    }
+                  } 
+                />
+              </nav>
+            }
+          </>
         }
       />
     </main>
