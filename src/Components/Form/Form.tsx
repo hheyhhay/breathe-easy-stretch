@@ -5,32 +5,29 @@ import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
 import {  cleanAllCitiesData } from '../../util/dataCleaning'
 
-interface Props {
+interface PropsForm {
+  setCitiesError: any
   getSelectedCityData: any
+  duplicateCityError: string
 }
 
-const Form: React.FC<Props> = ({ getSelectedCityData }) => {
+const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplicateCityError }) => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [allCitiesInState, setAllCitiesInState] = useState<string[]>([''])
   const [selectedCity, setSelectedCity] = useState<string>('')
-  const [citiesError, setCitiesError] = useState<boolean>(false)
 
   useEffect(() => {
     if (selectedState) {
-      getCities()
+      getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
+      .then(data => cleanAllCitiesData(data))
+      .then(data => setAllCitiesInState(data))
+      .catch(error => setCitiesError(error.message))
     }
   }, [selectedState])
 
   const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       e.preventDefault()
       setSelectedState(e.target.value)
-  }
-
-  const getCities = () => {
-    getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
-    .then(data => cleanAllCitiesData(data))
-    .then(data => setAllCitiesInState(data))
-    .catch(error => setCitiesError(error.message))
   }
 
   const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -53,12 +50,13 @@ const Form: React.FC<Props> = ({ getSelectedCityData }) => {
   return (
     <section className='location-container'>
       <form className='location-form'>
+        <p className='error-duplicate'>{duplicateCityError}</p>
         <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)} required>
-          <option value='' disabled selected>- Select a State -</option>
+          <option value='' disabled={true}>- Select a State -</option>
           { stateOptions }
         </select>
         <select className='city-select' value={selectedCity} onChange={e => handleCityChange(e)} required>
-          <option value='' disabled selected>- Select a City -</option>
+          <option value='' disabled={true}>- Select a City -</option>
           { cityOptions }
         </select>
       </form>
