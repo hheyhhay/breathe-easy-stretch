@@ -9,12 +9,12 @@ import { getCityData } from '../../apiCalls';
 
   
 const App: React.FunctionComponent = () => {
-  const [selectedCityData, setSelectedCityData] = useState<CleanData | any>({ })  
+  const [selectedCityData, setSelectedCityData] = useState<CleanData | any>(0)  
   const [otherCitiesData, setOtherCitiesData] = useState<CleanData[]>([])
   const [cityDataError, setCityDataError] = useState<string>('')
 
   const getSelectedCityData = (selectedState: string, selectedCity: string) => {
-    getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=2140c86a-f358-4a84-b8d6-aa447b9fc812`)
+    getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
       .then(data => cleanCityData(data))
       .then(data => {
         if (!selectedCityData) {
@@ -27,7 +27,7 @@ const App: React.FunctionComponent = () => {
   }
 
   const getCurrentLocationData = () => {
-    getCityData(`http://api.airvisual.com/v2/nearest_city?key=2140c86a-f358-4a84-b8d6-aa447b9fc812`)
+    getCityData(`http://api.airvisual.com/v2/nearest_city?key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
       .then(data => cleanCityData(data))
       .then(data => setSelectedCityData(data))
       .catch(error => setCityDataError(error.message))
