@@ -15,6 +15,12 @@
     margin-top: 15px;
 }
 
+.error-duplicate {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
 select {
     width: 150px;
     border-radius: 15px;

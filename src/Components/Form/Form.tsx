@@ -5,11 +5,12 @@ import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
 import {  cleanAllCitiesData } from '../../util/dataCleaning'
 
-interface Props {
+interface PropsForm {
   getSelectedCityData: any
+  duplicateCityError: string
 }
 
-const Form: React.FC<Props> = ({ getSelectedCityData }) => {
+const Form: React.FC<PropsForm> = ({ getSelectedCityData, duplicateCityError }) => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [allCitiesInState, setAllCitiesInState] = useState<string[]>([''])
   const [selectedCity, setSelectedCity] = useState<string>('')
@@ -53,6 +54,7 @@ const Form: React.FC<Props> = ({ getSelectedCityData }) => {
   return (
     <section className='location-container'>
       <form className='location-form'>
+        <p className='error-duplicate'>{duplicateCityError}</p>
         <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)} required>
           <option value='' disabled selected>- Select a State -</option>
           { stateOptions }
