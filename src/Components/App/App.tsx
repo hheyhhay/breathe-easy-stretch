@@ -5,7 +5,7 @@ import Loading from '../Loading/Loading'
 import Form from '../Form/Form'
 import SelectedCity from '../SelectedCity/SelectedCity'
 import OtherCities from '../OtherCities/OtherCities'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
   
@@ -75,6 +75,9 @@ const App: React.FunctionComponent = () => {
                     <h2 className='slogan'>-Breathe Easy.-</h2>
                   </div>
                   <p className='guiding-text'>Find the cleanest air around.</p>
+                  <Link to={`/current`}>
+                    <button className='current-location-button'>Use Current Location</button>
+                  </Link>
                   <Form 
                     setCitiesError={setCitiesError}
                     getSelectedCityData={getSelectedCityData}
@@ -87,7 +90,52 @@ const App: React.FunctionComponent = () => {
             </>
           }
         />
-
+        <Route exact path={'/current'}
+          render={() => 
+          <>
+            {cityDataError ?
+              <Error 
+                dataContents='AQI data for your city'
+                message={cityDataError}
+              />
+            :
+              <nav className='selected-city-nav'>
+                <div className='selected-city-shading'></div>
+                <section className='selected-city-container'>
+                  <SelectedCity 
+                    selectedCityData={selectedCityData} 
+                    resetCityData={resetCityData}
+                    setCityDataError={setCityDataError}
+                    current={true}
+                    setSelectedCityData={setSelectedCityData}
+                  /> 
+                  </section>
+                  <div className='compare-form-container'>
+                    <Form 
+                      setCitiesError={setCitiesError}
+                      getSelectedCityData={getSelectedCityData} 
+                      duplicateCityError={duplicateCityError} 
+                      selectedCityData={selectedCityData}
+                      setCityDataError={setCityDataError}
+                    />
+                  </div>
+                  <OtherCities 
+                    otherCitiesData={otherCitiesData} 
+                    deleteCityData={deleteCityData} 
+                    selectedCityData={
+                      {
+                        city: selectedCityData.city, 
+                        location: selectedCityData.location, 
+                        aqi: selectedCityData.aqi
+                      }
+                    } 
+                  />
+                </nav>
+              }
+            </>
+          }
+        />
+        
         <Route exact path={'/:selectedState/:selectedCity'}
           render={({ match }) => 
             <>
@@ -107,6 +155,9 @@ const App: React.FunctionComponent = () => {
                     <SelectedCity 
                       selectedCityData={selectedCityData} 
                       resetCityData={resetCityData}
+                      setCityDataError={setCityDataError}
+                      current={false}
+                      setSelectedCityData={setSelectedCityData}
                     />
                   </section>
                   <div className='compare-form-container'>
