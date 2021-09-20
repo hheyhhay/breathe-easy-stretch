@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './OtherCities.css'
 import OtherCity from '../OtherCity/OtherCity'
 import { CleanData } from '../../util/dataCleaning'
@@ -28,10 +28,10 @@ const OtherCities: React.FC<Props> = ({ otherCitiesData, deleteCityData, selecte
   })
 
   return (
-    <div>
-      {otherCityCards.length > 0 && 
+    <Fragment>
+       {otherCityCards.length > 0 && 
       <section className='other-cities-container'>{otherCityCards}</section>}
-    </div>
+    </Fragment>
   )
 }
 
