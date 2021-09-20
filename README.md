@@ -1,46 +1,88 @@
-# Getting Started with Create React App
+README concisely communicates the team’s individual and joint learning goals, the evolution of the project, and team member reflections while using good formatting to enhance readability
+README links to all user GitHub profiles and any applicable repos/deployed sites
+Setup instructions for any and all repos are thorough and verbose enough that even non-technical people (like recruiters) could follow them
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Rancid Tomatillos - Pair Project
 
-## Available Scripts
+### Table of Contents
+- [Deployed Site](#deployed-site)
+- [Github Repo](#github-repo)
+- [Demo](#demo)
+- [Project Spec](#project-spec)
+- [Instructions](#instructions)
+- [Overview](#overview)
+- [Features](#features)
+- [Learning Goals] (#learning-goals)
+- [Reflections](#project-reflection)
+- [Future Edition](#future-additions)
+- [Contributors](#Contributors)
 
-In the project directory, you can run:
+## Deployed Site - 
+## GitHub Repo - https://github.com/hheyhhay/breathe-easy-stretch
+## Demo
 
-### `npm start`
+![GIF Demo]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Main Page]
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Comparison Page]
 
-### `npm test`
+![States Error]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Cities Error]
 
-### `npm run build`
+## Project Spec
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Project Spec](https://frontend.turing.edu/projects/module-3/stretch.html)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instructions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 
 
-### `npm run eject`
+## Overview
+- To access the website: 
+- clone down repo 
+- cd into repo
+- run ``` npm install ```
+- run ``npm start``
+- webpage will open in seperate browser
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Technologies used: 
+ - React
+ - HTML5
+ - CSS
+ - Cypress 
+ - Dayjs
+ - Router
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
+-
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Learning Goals
+- 
 
-## Learn More
+## Reflections
+### Challenges
+- 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Wins 
+- 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Additions
+- 
+
+#### Contributors
+
+- William Phelps [Github](github.com/williamphelps13)
+- Hayley Dixon [Github](github.com/hheyhhay)
+- Eric Li [Github](github.com/ericli1996)
+
+#### Project Managers
+
+- Scott Ertmer
+- Kayla Gordon
+
+###### This project was created for [Turing School of Software and Design](https://turing.io/)
+###### 2021/09/20
+**[Back to top](#table-of-contents)**
