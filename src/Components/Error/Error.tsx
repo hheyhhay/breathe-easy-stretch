@@ -14,7 +14,7 @@ const Error: React.FC<PropsError>= ({ dataContents, message }) => {
       <h2 className='error-heading'>We've encountered an error in retrieving the {dataContents}.</h2>
       <p className='error-message'>{message}</p>
       <img
-        alt='Error image'
+        alt='Error'
         className='error-image'
         src={errorImage}
       />

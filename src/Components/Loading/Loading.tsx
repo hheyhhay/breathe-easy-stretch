@@ -8,7 +8,7 @@ const Loader = () => {
       <h2 className='loading-heading'>Hang tight!</h2>
       <p>The AQI Data for your selected city is loading.</p>
       <img
-        alt='Loading image'
+        alt='Loading'
         className='loading-image'
         src={loadingImage}
       ></img>  
