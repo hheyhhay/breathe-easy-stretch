@@ -1,8 +1,4 @@
-README concisely communicates the team’s individual and joint learning goals, the evolution of the project, and team member reflections while using good formatting to enhance readability
-README links to all user GitHub profiles and any applicable repos/deployed sites
-Setup instructions for any and all repos are thorough and verbose enough that even non-technical people (like recruiters) could follow them
-
-## Rancid Tomatillos - Pair Project
+## Breathe-Easy - Team TypeScript Project
 
 ### Table of Contents
 - [Deployed Site](#deployed-site)
@@ -18,6 +14,7 @@ Setup instructions for any and all repos are thorough and verbose enough that ev
 - [Project Managers](#project-managers)
 
 ## Deployed Site - 
+
 
 ## GitHub Repo - 
 https://github.com/hheyhhay/breathe-easy-stretch
@@ -51,6 +48,7 @@ https://github.com/hheyhhay/breathe-easy-stretch
 - webpage will open in seperate browser
 
 ## Technologies Used: 
+ - TypeScript
  - React
  - HTML5
  - CSS
