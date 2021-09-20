@@ -1,15 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './SelectedCity.css';
 import { Link } from 'react-router-dom';
 import { CleanData } from '../../util/dataCleaning';
+import { getCityData } from '../../apiCalls';
+import {  cleanCityData } from '../../util/dataCleaning'
 
 interface PropsSelectedCity {
     selectedCityData: CleanData
     resetCityData: any
-}
+    setCityDataError: any
+    current: boolean
+    setSelectedCityData: any
+  }
 
-const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCityData }) => {
-  const {city, state, timeStamp, aqi, temperature} = selectedCityData
+const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCityData, setCityDataError, current, setSelectedCityData }) => {
+  const [currentCityData, setCurrentCityData] = useState<CleanData | any>(0)  
+  let city, state, timeStamp, aqi, temperature;
+  
+  ({city, state, timeStamp, aqi, temperature} = selectedCityData)
+
+  if(current) {
+    ({city, state, timeStamp, aqi, temperature} = currentCityData)
+  }
+
+  useEffect(() => {
+    if (current) {
+      getCityData(`https://api.airvisual.com/v2/nearest_city?key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
+      .then(data => cleanCityData(data))
+      .then(data => {
+        setCurrentCityData(data)
+        setSelectedCityData(data)
+        })
+      .catch(error => setCityDataError(error.message))
+    }
+  }, [current])
 
   return (
     <section className='selected-city-card'>

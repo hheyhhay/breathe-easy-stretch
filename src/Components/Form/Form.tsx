@@ -3,22 +3,25 @@ import { Link } from 'react-router-dom';
 import './Form.css';
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
-import {  cleanAllCitiesData } from '../../util/dataCleaning'
+import {  cleanAllCitiesData, CleanData } from '../../util/dataCleaning'
 
 interface PropsForm {
   setCitiesError: any
   getSelectedCityData: any
   duplicateCityError: string
+  selectedCityData: string
+  setCityDataError: any
 }
 
-const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplicateCityError }) => {
+const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplicateCityError, selectedCityData }) => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [allCitiesInState, setAllCitiesInState] = useState<string[]>([''])
   const [selectedCity, setSelectedCity] = useState<string>('')
+  const [selectedCityFormData, setSelectedCityFormData] = useState<CleanData | any>(0)
 
   useEffect(() => {
     if (selectedState) {
-      getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
+      getCityList(`https://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1`)
       .then(data => cleanAllCitiesData(data))
       .then(data => setAllCitiesInState(data))
       .catch(error => setCitiesError(error.message))
@@ -61,9 +64,13 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
         </select>
       </form>
       <div className='form-buttons'>
-        <Link to={'/find-cleanest-air'}>
-          <button className='form-submit' onClick={()=> getSelectedCityData(selectedState, selectedCity)}>Show AQI</button>
+      {!selectedCityData ?
+        <Link to={`/${selectedState.split(' ').join('%20')}/${selectedCity.split(' ').join('%20')}`}>
+          <button className='form-submit'>Show AQI</button>
         </Link>
+      :
+        <button className='form-submit' onClick={()=> getSelectedCityData(selectedState, selectedCity)}>Show AQI</button>
+      }
         <button className='reset-button' onClick={() => clearInputs()}>Reset Form</button>  
       </div>
   </section>
