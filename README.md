@@ -10,15 +10,18 @@ Setup instructions for any and all repos are thorough and verbose enough that ev
 - [Demo](#demo)
 - [Project Spec](#project-spec)
 - [Instructions](#instructions)
-- [Overview](#overview)
+- [Setup Instructions](#setup-instructions)
 - [Features](#features)
-- [Learning Goals] (#learning-goals)
-- [Reflections](#project-reflection)
+- [Learning Goals and Reflections](#learning-goals-project-reflection)
 - [Future Edition](#future-additions)
-- [Contributors](#Contributors)
+- [Contributors](#contributors)
+- [Project Managers](#project-managers)
 
 ## Deployed Site - 
-## GitHub Repo - https://github.com/hheyhhay/breathe-easy-stretch
+
+## GitHub Repo - 
+https://github.com/hheyhhay/breathe-easy-stretch
+
 ## Demo
 
 ![GIF Demo]
@@ -39,7 +42,7 @@ Setup instructions for any and all repos are thorough and verbose enough that ev
 
 - 
 
-## Overview
+## Setup Instructions
 - To access the website: 
 - clone down repo 
 - cd into repo
@@ -47,7 +50,7 @@ Setup instructions for any and all repos are thorough and verbose enough that ev
 - run ``npm start``
 - webpage will open in seperate browser
 
-### Technologies used: 
+## Technologies Used: 
  - React
  - HTML5
  - CSS
@@ -58,16 +61,22 @@ Setup instructions for any and all repos are thorough and verbose enough that ev
 ## Features
 -
 
+## Learning Goals and Project Reflections
 
-## Learning Goals
-- 
+### Learning Goals
+##### William -
+##### Hayley -
+##### Eric -
 
-## Reflections
 ### Challenges
-- 
+##### William -
+##### Hayley -
+##### Eric -
 
 ### Wins 
-- 
+##### William -
+##### Hayley -
+##### Eric -
 
 ## Future Additions
 - 
