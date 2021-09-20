@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import './Form.css';
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
-import {  cleanAllCitiesData, cleanCityData, CleanData } from '../../util/dataCleaning'
-import { getCityData } from '../../apiCalls';
+import {  cleanAllCitiesData, CleanData } from '../../util/dataCleaning'
 
 interface PropsForm {
   setCitiesError: any
@@ -14,7 +13,7 @@ interface PropsForm {
   setCityDataError: any
 }
 
-const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplicateCityError, selectedCityData, setCityDataError }) => {
+const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplicateCityError, selectedCityData }) => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [allCitiesInState, setAllCitiesInState] = useState<string[]>([''])
   const [selectedCity, setSelectedCity] = useState<string>('')
@@ -28,13 +27,6 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
       .catch(error => setCitiesError(error.message))
     }
   }, [selectedState])
-
-  const getCurrentLocationData = () => {
-    getCityData(`http://api.airvisual.com/v2/nearest_city?key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
-      .then(data => cleanCityData(data))
-      .then(data => setSelectedCityFormData(data))
-      .catch(error => setCityDataError(error.message))
-  }
 
   const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       e.preventDefault()
@@ -60,10 +52,6 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
 
   return (
     <section className='location-container'>
-        <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
-      <Link to={`/${selectedCityFormData.state}/${selectedCityFormData.city}`}>
-        <button className='form-submit'>Show AQI</button>
-      </Link>
       <form className='location-form'>
         <p className='error-duplicate'>{duplicateCityError}</p>
         <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)} required>
