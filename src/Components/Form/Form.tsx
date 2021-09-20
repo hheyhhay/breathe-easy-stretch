@@ -3,18 +3,22 @@ import { Link } from 'react-router-dom';
 import './Form.css';
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
-import {  cleanAllCitiesData } from '../../util/dataCleaning'
+import {  cleanAllCitiesData, cleanCityData, CleanData } from '../../util/dataCleaning'
+import { getCityData } from '../../apiCalls';
 
 interface PropsForm {
   setCitiesError: any
   getSelectedCityData: any
   duplicateCityError: string
+  selectedCityData: string
+  setCityDataError: any
 }
 
-const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplicateCityError }) => {
+const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplicateCityError, selectedCityData, setCityDataError }) => {
   const [selectedState, setSelectedState] = useState<string>('')
   const [allCitiesInState, setAllCitiesInState] = useState<string[]>([''])
   const [selectedCity, setSelectedCity] = useState<string>('')
+  const [selectedCityFormData, setSelectedCityFormData] = useState<CleanData | any>(0)
 
   useEffect(() => {
     if (selectedState) {
@@ -24,6 +28,13 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
       .catch(error => setCitiesError(error.message))
     }
   }, [selectedState])
+
+  const getCurrentLocationData = () => {
+    getCityData(`http://api.airvisual.com/v2/nearest_city?key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
+      .then(data => cleanCityData(data))
+      .then(data => setSelectedCityFormData(data))
+      .catch(error => setCityDataError(error.message))
+  }
 
   const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       e.preventDefault()
@@ -49,6 +60,10 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
 
   return (
     <section className='location-container'>
+        <button className='current-location-button' onClick={() => getCurrentLocationData()}>Use Current Location</button>
+      <Link to={`/${selectedCityFormData.state}/${selectedCityFormData.city}`}>
+        <button className='form-submit'>Show AQI</button>
+      </Link>
       <form className='location-form'>
         <p className='error-duplicate'>{duplicateCityError}</p>
         <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)} required>
@@ -61,9 +76,13 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
         </select>
       </form>
       <div className='form-buttons'>
-        <Link to={'/find-cleanest-air'}>
-          <button className='form-submit' onClick={()=> getSelectedCityData(selectedState, selectedCity)}>Show AQI</button>
+      {!selectedCityData ?
+        <Link to={`/${selectedState.split(' ').join('%20')}/${selectedCity.split(' ').join('%20')}`}>
+          <button className='form-submit'>Show AQI</button>
         </Link>
+      :
+        <button className='form-submit' onClick={()=> getSelectedCityData(selectedState, selectedCity)}>Show AQI</button>
+      }
         <button className='reset-button' onClick={() => clearInputs()}>Reset Form</button>  
       </div>
   </section>
