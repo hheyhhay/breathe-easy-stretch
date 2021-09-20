@@ -5,7 +5,7 @@ import Loading from '../Loading/Loading'
 import Form from '../Form/Form'
 import SelectedCity from '../SelectedCity/SelectedCity'
 import OtherCities from '../OtherCities/OtherCities'
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls';
   
@@ -98,13 +98,14 @@ const App: React.FunctionComponent = () => {
       <Route exact path={'/find-cleanest-air'}
         render={() => 
           <>
-            {cityDataError ?
+            {
+            cityDataError ?
               <Error 
                 dataContents='AQI data for your city'
                 message={cityDataError}
               />
             : !selectedCityData ?
-              <Loading />
+              <Redirect to ="/" />
             :
               <nav className='selected-city-nav'>
                 <div className='selected-city-shading'></div>
