@@ -16,16 +16,14 @@ interface PropsSelectedCity {
 const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCityData, setCityDataError, current, setSelectedCityData }) => {
   const [currentCityData, setCurrentCityData] = useState<CleanData | any>(0)  
   let city, state, timeStamp, aqi, temperature;
-  
   ({city, state, timeStamp, aqi, temperature} = selectedCityData)
-
   if(current) {
     ({city, state, timeStamp, aqi, temperature} = currentCityData)
   }
 
   useEffect(() => {
     if (current) {
-      getCityData(`http://api.airvisual.com/v2/nearest_city?key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
+      getCityData(`http://api.airvisual.com/v2/nearest_city?key=e4f6cdec-d71a-4a7e-b4dc-e8a7f1b4fb7a`)
       .then(data => cleanCityData(data))
       .then(data => {
         setCurrentCityData(data)
@@ -51,8 +49,8 @@ const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCity
         <h3 className='temp-value'>{`${temperature}°F`}</h3>
       </div>
       <p className='select-prompt'>Pick a city to compare</p>
-      <Link to={`/`}>
-        <button className='home-button' onClick={() => resetCityData()}>Return Home</button>
+      <Link to={`/`} onClick={() => resetCityData()}>
+        <button className='home-button' >Return Home</button>
       </Link>
     </section> 
   )
