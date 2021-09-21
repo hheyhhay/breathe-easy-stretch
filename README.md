@@ -22,11 +22,11 @@ https://github.com/hheyhhay/breathe-easy-stretch
 
 ![GIF Demo]
 
-![Main Page] <img width="1421" alt="Screen Shot 2021-09-20 at 8 44 11 PM" src="https://user-images.githubusercontent.com/22990386/134104608-23713613-1486-47de-8f2c-29f4d8a5e995.png">
+<img width="1421" alt="Screen Shot 2021-09-20 at 8 44 11 PM" src="https://user-images.githubusercontent.com/22990386/134104608-23713613-1486-47de-8f2c-29f4d8a5e995.png">
 
-![City Comparison Page]![Screen Shot 2021-09-20 at 8 46 21 PM](https://user-images.githubusercontent.com/22990386/134104710-9e719b20-8681-4b6b-83dd-243a396515a7.png)
+[Screen Shot 2021-09-20 at 8 46 21 PM](https://user-images.githubusercontent.com/22990386/134104710-9e719b20-8681-4b6b-83dd-243a396515a7.png)
 
-![States Error]<img width="1022" alt="Screen Shot 2021-09-20 at 8 47 13 PM" src="https://user-images.githubusercontent.com/22990386/134104692-e6d4378c-fbb8-4540-894d-9f7c56c73c07.png">
+<img width="1022" alt="Screen Shot 2021-09-20 at 8 47 13 PM" src="https://user-images.githubusercontent.com/22990386/134104692-e6d4378c-fbb8-4540-894d-9f7c56c73c07.png">
 
 ## Project Spec
 
