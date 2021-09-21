@@ -7,7 +7,6 @@
 - [Project Spec](#project-spec)
 - [App Operation Instructions](#app-operation-instructions)
 - [Setup Instructions](#setup-instructions)
-- [Features](#features)
 - [Learning Goals and Reflections](#learning-goals-project-reflection)
 - [Future Additions](#future-additions)
 - [Contributors](#contributors)
@@ -59,9 +58,6 @@ https://github.com/hheyhhay/breathe-easy-stretch
  - Dayjs
  - Router
 
-## Features
--
-
 ## Learning Goals and Project Reflections
 
 ### Learning Goals
@@ -70,31 +66,40 @@ https://github.com/hheyhhay/breathe-easy-stretch
 - Further Router skills - router drives fetch and page content so that url can be referenced or favorited, switch to have a destination if a unknown url is used
 - Get basic understanding of benefits and difficulties of typeScript as well as a solid understanding of how to impliment it in a simple app
 ##### Hayley -
+- Better understand react and react router
+- Self-teach and understand the fundamentals of Typescript
 ##### Eric -
 
 ### Challenges
 ##### William - 
-- Component layout - deciding what component to
+- Component layout - deciding what component should have which hook and which API call
 - Keeping track of the props that are being passed in for reused components (form, selected city)
 ##### Hayley -
+- Implementing Typescript while also still developing my understanding of react
+- Balance between time and desire to build a quality application
 ##### Eric -
 
 ### Wins 
 ##### William -
+- I am very happy with the final component structure 
+- The team effort that resulted in this application has built the best application yet
 ##### Hayley -
+- I have a better understanding of React and Typescript not
+- I have a better understanding on why Typescript is beneficial and when it is cumbersome
 ##### Eric -
 
 ## Future Additions
-- 
+- Three toggling selectors in which a user can sort the other cities:
+  - Sort by the order added
+  - Sort by the distance from selected city
+  - Sort by the AQI
 
 #### Contributors
-
 - William Phelps [Github](github.com/williamphelps13)
 - Hayley Dixon [Github](github.com/hheyhhay)
 - Eric Li [Github](github.com/ericli1996)
 
 #### Project Managers
-
 - Scott Ertmer
 - Kayla Gordon
 
