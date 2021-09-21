@@ -13,7 +13,7 @@
 - [Project Managers](#project-managers)
 
 ## Deployed Site - 
-[Breathe Easy](https://breathe-easy.surge.sh/)
+[Breathe Easy](breezy-breathe-easy.surge.sh/)
 
 ## GitHub Repo - 
 https://github.com/hheyhhay/breathe-easy-stretch
