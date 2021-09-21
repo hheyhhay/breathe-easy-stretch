@@ -64,7 +64,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
         </select>
       </form>
       <div className='form-buttons'>
-      {selectedState ?
+      {!selectedCityData ?
         <Link to={`/${selectedState.split(' ').join('%20')}/${selectedCity.split(' ').join('%20')}`} className='disabled-link'>
           <button className='form-submit'>Show AQI</button>
         </Link>
