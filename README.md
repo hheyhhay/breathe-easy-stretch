@@ -20,15 +20,15 @@ https://github.com/hheyhhay/breathe-easy-stretch
 
 ## Demo
 
-![Stretch 1 Gif](https://thumbs.gfycat.com/HideousLoneEmperorpenguin-mobile.mp4)
-
-![Stretch 2 Gif](https://thumbs.gfycat.com/GranularPotableAmericanwirehair-mobile.mp4)
-
 ![Main Page](https://user-images.githubusercontent.com/22990386/134104608-23713613-1486-47de-8f2c-29f4d8a5e995.png)
 
 ![City Comparison Page](https://user-images.githubusercontent.com/22990386/134104710-9e719b20-8681-4b6b-83dd-243a396515a7.png) 
 
 ![States Error](https://user-images.githubusercontent.com/22990386/134104692-e6d4378c-fbb8-4540-894d-9f7c56c73c07.png)
+
+[Stretch 1 Gif](https://thumbs.gfycat.com/HideousLoneEmperorpenguin-mobile.mp4)
+
+[Stretch 2 Gif](https://thumbs.gfycat.com/GranularPotableAmericanwirehair-mobile.mp4)
 
 ## Project Spec
 
