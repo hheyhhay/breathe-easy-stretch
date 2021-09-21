@@ -13,7 +13,7 @@
 - [Project Managers](#project-managers)
 
 ## Deployed Site - 
-https://breathe-easy.surge.sh/
+[Breathe Easy](https://breathe-easy.surge.sh/)
 
 ## GitHub Repo - 
 https://github.com/hheyhhay/breathe-easy-stretch
@@ -42,12 +42,14 @@ https://github.com/hheyhhay/breathe-easy-stretch
 - The user can go back to the main page by clicking 'Return Home'
 
 ## Setup Instructions
-- To access the website: 
-- clone down repo 
-- cd into repo
-- run ``` npm install ```
-- run ``npm start``
-- webpage will open in seperate browser
+
+To run the application on a local machine:
+
+- Clone down repository 
+- `cd` into repository
+- Run ``` npm install ```
+- Run ``npm start``
+- Webpage will open in seperate browser
 
 ## Technologies Used: 
  - TypeScript
@@ -69,6 +71,11 @@ https://github.com/hheyhhay/breathe-easy-stretch
 - Better understand react and react router
 - Self-teach and understand the fundamentals of Typescript
 ##### Eric -
+- Gain fluency in TypeScript, React, and Router
+- Strengthen self-teaching and initiative
+- Strengthen group dynamics
+- Learn how to implement hooks
+- CSS repetition
 
 ### Challenges
 ##### William - 
@@ -78,6 +85,8 @@ https://github.com/hheyhhay/breathe-easy-stretch
 - Implementing Typescript while also still developing my understanding of react
 - Balance between time and desire to build a quality application
 ##### Eric -
+- Creating a very different design and having everything work with Router
+- How to position elements over an image using position: absolute and have the parent (background) div scale with its contents.
 
 ### Wins 
 ##### William -
@@ -87,6 +96,9 @@ https://github.com/hheyhhay/breathe-easy-stretch
 - I have a better understanding of React and Typescript not
 - I have a better understanding on why Typescript is beneficial and when it is cumbersome
 ##### Eric -
+- Very happy everything came together with the limitations of the API
+- I have gained a fundamental understanding of TypeScript
+- Getting repetitions of React and implementing HOOKS!
 
 ## Future Additions
 - Three toggling selectors in which a user can sort the other cities:
