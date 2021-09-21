@@ -5,9 +5,9 @@ import Loading from '../Loading/Loading'
 import Form from '../Form/Form'
 import SelectedCity from '../SelectedCity/SelectedCity'
 import OtherCities from '../OtherCities/OtherCities'
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom'
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
-import { getCityData } from '../../apiCalls';
+import { getCityData } from '../../apiCalls'
 import backgroundImage from '../../stretch-background.jpg'
   
 const App: React.FunctionComponent = () => {

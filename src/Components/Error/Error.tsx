@@ -1,7 +1,7 @@
 import React from 'react'
-import './Error.css';
+import './Error.css'
 import errorImage from './errorImage.png'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 interface PropsError {
   message: string

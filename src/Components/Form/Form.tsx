@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './Form.css';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import './Form.css'
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
 import {  cleanAllCitiesData } from '../../util/dataCleaning'
@@ -20,7 +20,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
 
   useEffect(() => {
     if (selectedState) {
-      getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=e4f6cdec-d71a-4a7e-b4dc-e8a7f1b4fb7a`)
+      getCityList(`https://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=e4f6cdec-d71a-4a7e-b4dc-e8a7f1b4fb7a`)
       .then(data => cleanAllCitiesData(data))
       .then(data => setAllCitiesInState(data))
       .catch(error => setCitiesError(error.message))
