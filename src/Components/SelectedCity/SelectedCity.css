@@ -16,7 +16,7 @@
 
 .location-info {
     font-size: 1.5em;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .aqi-title {
@@ -35,19 +35,19 @@
 }
 
 .green {
-    color: green;
+    color: #28CC2D;
 }
 
 .yellow {
-    color: yellow;
+    color: #FFFF00;
 }
 
 .orange {
-    color: orange;
+    color: #FCA106;
 }
 
 .red {
-    color: red;
+    color: #FF0000;
 }
 
 .select-prompt {
@@ -62,6 +62,7 @@
     position: absolute;
     top: 480px;
     right: 65px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 0.4);
     cursor: pointer;
     border: 0px;
 }

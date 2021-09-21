@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './Form.css';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import './Form.css'
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
-import {  cleanAllCitiesData, CleanData } from '../../util/dataCleaning'
+import {  cleanAllCitiesData } from '../../util/dataCleaning'
 
 interface PropsForm {
   setCitiesError: any
@@ -17,7 +17,6 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
   const [selectedState, setSelectedState] = useState<string>('')
   const [allCitiesInState, setAllCitiesInState] = useState<string[]>([''])
   const [selectedCity, setSelectedCity] = useState<string>('')
-  const [selectedCityFormData, setSelectedCityFormData] = useState<CleanData | any>(0)
 
   useEffect(() => {
     if (selectedState) {
@@ -40,6 +39,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
   const stateOptions = allStates.map((state: string, index: number) => {
       return (<option key={index} value={state}>{state}</option>)
   })
+
   const cityOptions = allCitiesInState.map((city: string, index: number) => {
       return (<option key={index} value={city}>{city}</option>)
   })
@@ -53,7 +53,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
   return (
     <section className='location-container'>
       <form className='location-form'>
-        <p className='error-duplicate'>{duplicateCityError}</p>
+        {duplicateCityError && <p className='error-duplicate'>{duplicateCityError}</p>}
         <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)} required>
           <option value='' disabled={true}>- Select a State -</option>
           { stateOptions }
@@ -65,7 +65,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
       </form>
       <div className='form-buttons'>
       {!selectedCityData ?
-        <Link to={`/${selectedState.split(' ').join('%20')}/${selectedCity.split(' ').join('%20')}`}>
+        <Link to={`/${selectedState.split(' ').join('%20')}/${selectedCity.split(' ').join('%20')}`} className='disabled-link'>
           <button className='form-submit'>Show AQI</button>
         </Link>
       :

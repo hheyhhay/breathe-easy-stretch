@@ -4,13 +4,17 @@
   border-radius: 10px;
   box-shadow: 0 1px 5px rgb(0 0 0 / 0.5);
   width: 17vw;
-  height: 15em;
+  height: 16em;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   position: relative;
+}
+
+.other-city-location {
+  margin-top: 1em;
 }
 
 .other-city-location, .aqi-difference {
@@ -33,6 +37,13 @@
   font-size: 1.7em;
 }
 
+.distance-difference-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 6em;
+}
+
 .delete-other-city {
   position: absolute;
   top: 7px;
@@ -43,11 +54,31 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 1475px) {
+  .other-city-card {
+    width: 22vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .other-city-card {
+    width: 28vw;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .other-city-card {
+    width: 50vw;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .other-city-card {
-    width: 90vw;
+    width: 93vw;
     height: 12em;
+    min-height: 11em;
     font-size: 0.7em;
+    justify-content: space-between;
     text-align: center;
   }
 
@@ -57,9 +88,11 @@
 
   .other-city-location {
     position: absolute;
+    font-size: 1.4em;
     top: 1em;
     left: 0;
     right: 0;
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
   }
@@ -70,7 +103,8 @@
 
   .other-city-timestamp {
     position: absolute;
-    top: 4em;
+    font-size: 1em;
+    top: 3em;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -95,7 +129,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
     width: 70vw;
+    margin-top: 8em;
+  }
+
+  .other-city-distance {
+    padding-right: 1em;
+  }
+
+  .other-city-distance, .aqi-difference {
+    font-size: 1.2em;
+  }
+
+  .delete-other-city {
+    font-size: 1.6em;
+    top: 0px;
+    right: 2px;
   }
 }

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import './SelectedCity.css';
-import { Link } from 'react-router-dom';
-import { CleanData } from '../../util/dataCleaning';
-import { getCityData } from '../../apiCalls';
+import React, { useState, useEffect } from 'react'
+import './SelectedCity.css'
+import { Link } from 'react-router-dom'
+import { CleanData } from '../../util/dataCleaning'
+import { getCityData } from '../../apiCalls'
 import {  cleanCityData } from '../../util/dataCleaning'
 
 interface PropsSelectedCity {
@@ -16,9 +16,7 @@ interface PropsSelectedCity {
 const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCityData, setCityDataError, current, setSelectedCityData }) => {
   const [currentCityData, setCurrentCityData] = useState<CleanData | any>(0)  
   let city, state, timeStamp, aqi, temperature;
-  
   ({city, state, timeStamp, aqi, temperature} = selectedCityData)
-
   if(current) {
     ({city, state, timeStamp, aqi, temperature} = currentCityData)
   }
@@ -51,8 +49,8 @@ const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCity
         <h3 className='temp-value'>{`${temperature}°F`}</h3>
       </div>
       <p className='select-prompt'>Pick a city to compare</p>
-      <Link to={`/`}>
-        <button className='home-button' onClick={() => resetCityData()}>Return Home</button>
+      <Link to={`/`} onClick={() => resetCityData()}>
+        <button className='home-button' >Return Home</button>
       </Link>
     </section> 
   )

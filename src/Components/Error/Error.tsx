@@ -1,14 +1,15 @@
 import React from 'react'
-import './Error.css';
+import './Error.css'
 import errorImage from './errorImage.png'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 interface PropsError {
   message: string
   dataContents: string
+  resetCityData: any
 }
 
-const Error: React.FC<PropsError>= ({ dataContents, message }) => {
+const Error: React.FC<PropsError>= ({ dataContents, message, resetCityData }) => {
   return (
     <div className='error-container'>
       <div className='error-card'>

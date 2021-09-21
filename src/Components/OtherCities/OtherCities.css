@@ -2,9 +2,41 @@
   position: absolute;
   top: 100px;
   left: 340px;
+  width: 80vw;
+  height: 89.3vh;
+  overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
+
+  padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+  box-sizing: content-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+@media screen and (max-width: 1475px) {
+  .other-cities-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .other-cities-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .other-cities-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -12,10 +44,9 @@
     top: 26em;
     left: 0;
     right: 0;
-    margin-left: auto;
+    margin-left: 0.6em;
     margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: 43vh;
+    width: 95vw;
   }
 }

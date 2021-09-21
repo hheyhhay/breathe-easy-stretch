@@ -5,9 +5,10 @@ import Loading from '../Loading/Loading'
 import Form from '../Form/Form'
 import SelectedCity from '../SelectedCity/SelectedCity'
 import OtherCities from '../OtherCities/OtherCities'
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom'
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
-import { getCityData } from '../../apiCalls';
+import { getCityData } from '../../apiCalls'
+import backgroundImage from '../../stretch-background.jpg'
   
 const App: React.FunctionComponent = () => {
   const [selectedCityData, setSelectedCityData] = useState<CleanData | any>(0)  
@@ -33,7 +34,6 @@ const App: React.FunctionComponent = () => {
 
   const checkSortData = (data: CleanData) => {
     const checkIfIncludesCity = otherCitiesData.filter(otherCity => otherCity.city === data.city)
-
     if (!checkIfIncludesCity.length) {
       setOtherCitiesData([...otherCitiesData, data].sort((a, b) => a.aqi - b.aqi))
     } else {
@@ -46,18 +46,19 @@ const App: React.FunctionComponent = () => {
 
   const deleteCityData = (id: number[]) => {
     const filteredOtherCities = otherCitiesData.filter(city => city.location !== id)
-
     setOtherCitiesData(filteredOtherCities)
   }
 
   const resetCityData = () => {
     setSelectedCityData(0)
     setOtherCitiesData([])
+    setCitiesError('')
+    setCityDataError('')
   }
 
   return (
     <main>
-      <img className='backdrop' alt='sunset-backdrop' src={'stretch-background.jpg'}></img>
+      <img className='backdrop' alt='sunset-backdrop' src={backgroundImage}></img>
       <div className='darken-backdrop'></div>
       <Switch>
         <Route exact path='/'
@@ -66,6 +67,7 @@ const App: React.FunctionComponent = () => {
               {citiesError ?
                 <Error 
                   dataContents='AQI data for available cities in that state'
+                  resetCityData={resetCityData}
                   message={citiesError}
                 />
               :
@@ -97,6 +99,7 @@ const App: React.FunctionComponent = () => {
             cityDataError ?
               <Error 
                 dataContents='AQI data for your city'
+                resetCityData={resetCityData}
                 message={cityDataError}
               />
             :
@@ -144,6 +147,7 @@ const App: React.FunctionComponent = () => {
               
               {cityDataError ?
                 <Error 
+                  resetCityData={resetCityData} 
                   dataContents='AQI data for your city'
                   message={cityDataError}
                 />
@@ -189,6 +193,7 @@ const App: React.FunctionComponent = () => {
         <Route>
           <Error 
           dataContents='AQI data for available cities in that state'
+          resetCityData={resetCityData}
           message={citiesError}
           />
         </Route>

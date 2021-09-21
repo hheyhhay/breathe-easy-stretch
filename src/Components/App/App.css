@@ -1,24 +1,17 @@
 main {
   width: 100vw;
-  height: max-content;
 }
 
 .backdrop {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   position: relative;
   z-index: -1;
-  opacity: 80%;
+  opacity: 0.8;
   object-fit: cover;
   display: block;
   overflow: auto;
 }
-
-/* .backdrop:after {
-  padding-top: 75%;
-  display: block;
-  content: '';
-} */
 
 .darken-backdrop {
   width: 100vw;
@@ -49,7 +42,7 @@ main {
 .selected-city-shading {
   min-height: 100vh;
   width: 300px;
-  opacity: 85%;
+  opacity: 0.85;
   background-color: #333333;
   position: absolute;
   top: 0;
@@ -60,10 +53,6 @@ main {
   position: absolute;
   top: 50px;
   margin-left: 0;
-}
-
-.loading-message {
-  z-index: 10;
 }
 
 .compare-form-container {
@@ -86,6 +75,7 @@ main {
 
 .logo {
   font-size: 50px;
+  font-family: 'Permanent Marker';
 }
 
 .slogan {
@@ -99,8 +89,10 @@ main {
 }
 
 .current-location-button {
+  cursor: pointer;
   background-color: green;
-  border: 1px solid white;
+  border: 0px;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 0.4);
   border-radius: 15px;
   padding: 5px 10px;
   margin-bottom: 10px;
@@ -129,5 +121,3 @@ main {
     margin-right: auto;
   }
 }
-
-
