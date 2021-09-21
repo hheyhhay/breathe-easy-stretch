@@ -37,7 +37,7 @@ const App: React.FunctionComponent = () => {
     if (!checkIfIncludesCity.length) {
       setOtherCitiesData([...otherCitiesData, data].sort((a, b) => a.aqi - b.aqi))
     } else {
-      setDuplicateCityError('This city is already being compared.')
+      setDuplicateCityError('This city is already being compared, dumbass.')
       setTimeout(() => {
         setDuplicateCityError('')
       }, 3000);
