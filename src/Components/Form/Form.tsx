@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Form.css';
 import { allStates } from '../../util/data'
 import { getCityList } from '../../apiCalls'
-import {  cleanAllCitiesData, CleanData } from '../../util/dataCleaning'
+import {  cleanAllCitiesData } from '../../util/dataCleaning'
 
 interface PropsForm {
   setCitiesError: any
@@ -17,11 +17,10 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
   const [selectedState, setSelectedState] = useState<string>('')
   const [allCitiesInState, setAllCitiesInState] = useState<string[]>([''])
   const [selectedCity, setSelectedCity] = useState<string>('')
-  const [selectedCityFormData, setSelectedCityFormData] = useState<CleanData | any>(0)
 
   useEffect(() => {
     if (selectedState) {
-      getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
+      getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=e4f6cdec-d71a-4a7e-b4dc-e8a7f1b4fb7a`)
       .then(data => cleanAllCitiesData(data))
       .then(data => setAllCitiesInState(data))
       .catch(error => setCitiesError(error.message))
@@ -40,6 +39,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
   const stateOptions = allStates.map((state: string, index: number) => {
       return (<option key={index} value={state}>{state}</option>)
   })
+
   const cityOptions = allCitiesInState.map((city: string, index: number) => {
       return (<option key={index} value={city}>{city}</option>)
   })
@@ -53,7 +53,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
   return (
     <section className='location-container'>
       <form className='location-form'>
-        <p className='error-duplicate'>{duplicateCityError}</p>
+        {duplicateCityError && <p className='error-duplicate'>{duplicateCityError}</p>}
         <select className='state-select' value={selectedState} onChange={e => handleStateChange(e)} required>
           <option value='' disabled={true}>- Select a State -</option>
           { stateOptions }
@@ -64,8 +64,8 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
         </select>
       </form>
       <div className='form-buttons'>
-      {!selectedCityData ?
-        <Link to={`/${selectedState.split(' ').join('%20')}/${selectedCity.split(' ').join('%20')}`}>
+      {selectedState ?
+        <Link to={`/${selectedState.split(' ').join('%20')}/${selectedCity.split(' ').join('%20')}`} className='disabled-link'>
           <button className='form-submit'>Show AQI</button>
         </Link>
       :
