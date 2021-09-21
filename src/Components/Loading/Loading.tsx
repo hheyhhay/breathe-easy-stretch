@@ -2,11 +2,9 @@ import React from 'react'
 import './Loading.css';
 import loadingImage from './loadingImage.jpeg'
 
-const Loader = () => {
+const Loading = () => {
   return (
     <div className='loading-container'>
-      <h2 className='loading-heading'>Hang tight!</h2>
-      <p>The AQI Data for your selected city is loading.</p>
       <img
         alt='Loading'
         className='loading-image'
@@ -16,4 +14,4 @@ const Loader = () => {
   )
 }
 
-export default Loader;
+export default Loading;
