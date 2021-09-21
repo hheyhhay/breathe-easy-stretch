@@ -21,7 +21,7 @@ const Form: React.FC<PropsForm> = ({ setCitiesError, getSelectedCityData, duplic
 
   useEffect(() => {
     if (selectedState) {
-      getCityList(`http://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
+      getCityList(`https://api.airvisual.com/v2/cities?state=${selectedState}&country=USA&key=e4f6cdec-d71a-4a7e-b4dc-e8a7f1b4fb7a`)
       .then(data => cleanAllCitiesData(data))
       .then(data => setAllCitiesInState(data))
       .catch(error => setCitiesError(error.message))

@@ -17,7 +17,7 @@ const App: React.FunctionComponent = () => {
   const [duplicateCityError, setDuplicateCityError] = useState<string>('')
 
   const getSelectedCityData = (selectedState: string, selectedCity: string) => {
-    getCityData(`http://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=8b1bc68f-68fc-497f-8392-79664f6b493f`)
+    getCityData(`https://api.airvisual.com/v2/city?city=${selectedCity}&state=${selectedState}&country=USA&key=e4f6cdec-d71a-4a7e-b4dc-e8a7f1b4fb7a`)
       .then(data => cleanCityData(data))
       .then(data => addSelectedOrOtherCity(data))
       .catch(error => setCityDataError(error.message))
@@ -93,7 +93,8 @@ const App: React.FunctionComponent = () => {
         <Route exact path={'/current'}
           render={() => 
           <>
-            {cityDataError ?
+            {
+            cityDataError ?
               <Error 
                 dataContents='AQI data for your city'
                 message={cityDataError}
