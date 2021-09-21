@@ -65,12 +65,17 @@ https://github.com/hheyhhay/breathe-easy-stretch
 ## Learning Goals and Project Reflections
 
 ### Learning Goals
-##### William -
+##### William - 
+- Greatly improve React.js abilities - hooks, use effect, passing data down, passing actions up
+- Further Router skills - router drives fetch and page content so that url can be referenced or favorited, switch to have a destination if a unknown url is used
+- Get basic understanding of benefits and difficulties of typeScript as well as a solid understanding of how to impliment it in a simple app
 ##### Hayley -
 ##### Eric -
 
 ### Challenges
-##### William -
+##### William - 
+- Component layout - deciding what component to
+- Keeping track of the props that are being passed in for reused components (form, selected city)
 ##### Hayley -
 ##### Eric -
 
