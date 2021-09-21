@@ -5,16 +5,16 @@
 - [Github Repo](#github-repo)
 - [Demo](#demo)
 - [Project Spec](#project-spec)
-- [Instructions](#instructions)
+- [App Operation Instructions](#app-operation-instructions)
 - [Setup Instructions](#setup-instructions)
 - [Features](#features)
 - [Learning Goals and Reflections](#learning-goals-project-reflection)
-- [Future Edition](#future-additions)
+- [Future Additions](#future-additions)
 - [Contributors](#contributors)
 - [Project Managers](#project-managers)
 
 ## Deployed Site - 
-
+https://breathe-easy.surge.sh/
 
 ## GitHub Repo - 
 https://github.com/hheyhhay/breathe-easy-stretch
@@ -25,19 +25,22 @@ https://github.com/hheyhhay/breathe-easy-stretch
 
 ![Main Page]
 
-![Comparison Page]
+![City Comparison Page]
 
 ![States Error]
-
-![Cities Error]
 
 ## Project Spec
 
 [Project Spec](https://frontend.turing.edu/projects/module-3/stretch.html)
 
 ## Instructions
-
-- 
+- The purpose of the Breathe-Easy (Breezy) App is to help a user find the cleanest air around them
+- The user starts by either clicking the 'Use Current Location' button or selecting a U.S. state and then a city and clicking 'Show AQI'
+- The selected city is then show on a right hand panel with its current air quality index (AQI) Score and current temperature
+- The user can then select addition cities from the same style drop down menus to compare to the selected city
+- The comparison cities also have their AQI and temperature but also the difference between their AQI and the selected city AQI and the distance from the selected city
+- The comparison cities are automatically sorted from lowest AQI to highest AQI as they are added
+- The user can go back to the main page by clicking 'Return Home'
 
 ## Setup Instructions
 - To access the website: 
