@@ -20,7 +20,7 @@ const Error: React.FC<PropsError>= ({ dataContents, message, resetCityData }) =>
           className='error-image'
           src={errorImage}
         />
-        <Link to={`/`}>
+        <Link to={`/`} onClick={() => resetCityData()}>
           <button className='error-button'>Return Home</button>
         </Link>
       </div>
