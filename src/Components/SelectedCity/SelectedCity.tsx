@@ -23,7 +23,7 @@ const SelectedCity: React.FC<PropsSelectedCity> = ({ selectedCityData, resetCity
 
   useEffect(() => {
     if (current) {
-      getCityData(`https://api.airvisual.com/v2/nearest_city?key=2a2e0dca-a44f-44a4-8361-4b99edadf95e`)
+      getCityData(`https://api.airvisual.com/v2/nearest_city?key=1ba3e656-3c23-43ce-8e50-79fda3817502`)
       .then(data => cleanCityData(data))
       .then(data => {
         setCurrentCityData(data)

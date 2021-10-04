@@ -34,7 +34,7 @@ const OtherCity: React.FC<PropsOtherCity> = ({ city, state, aqi, timeStamp, temp
         }
         <p className='other-city-distance'>{`${distanceBetween} mi away`}</p>
       </div>
-      <button className='delete-other-city' onClick={() => deleteCityData(location)}>x</button>
+      <button className='delete-other-city' onClick={() => deleteCityData(location)}>✕</button>
     </article>
   ) 
 }
