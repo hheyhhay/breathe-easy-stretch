@@ -29,6 +29,12 @@ const OtherCities: React.FC<PropsOtherCities> = ({ otherCitiesData, deleteCityDa
 
   return (
     <div>
+      <p className='aqi-key'>Air Quality Index (AQI) Guide: 
+        <span className='good-aqi'>  Good - 0-50</span>
+        <span className='moderate-aqi'>  Moderate - 51-100</span>
+        <span className='sensitive-aqi'>  Unhealthy for Sensitive Groups - 101-150</span>
+        <span className='unhealthy-aqi'>  Unhealthy - 151 and above</span>
+      </p>
       {otherCityCards.length > 0 && 
       <section className='other-cities-container'>{otherCityCards}</section>}
     </div>
