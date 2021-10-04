@@ -55,11 +55,12 @@ select {
     justify-content: space-between;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 570px) {
     button, select, .reset-button, .form-submit {
         width: 60vw;
         font-size: 1em;
         margin-top: 5px;
+        
         margin-bottom: 5px;
     }
 
