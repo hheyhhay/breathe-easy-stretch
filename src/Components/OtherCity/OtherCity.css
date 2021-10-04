@@ -11,6 +11,7 @@
   text-align: center;
   justify-content: space-around;
   position: relative;
+  margin: 5px;
 }
 
 .other-city-location {
@@ -53,7 +54,7 @@
   background-color: white;
   cursor: pointer;
 }
-
+/*
 @media screen and (max-width: 1475px) {
   .other-city-card {
     width: 22vw;
@@ -70,7 +71,7 @@
   .other-city-card {
     width: 50vw;
   }
-}
+} */
 
 @media screen and (max-width: 480px) {
   .other-city-card {
@@ -146,4 +147,4 @@
     top: 0px;
     right: 2px;
   }
-}
+} 

@@ -3,8 +3,8 @@ main {
 }
 
 .backdrop {
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   position: relative;
   z-index: -1;
   opacity: 0.8;
@@ -14,8 +14,11 @@ main {
 }
 
 .darken-backdrop {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
+  overflow: auto;
+  object-fit: cover;
+  display: block;
   background-color: black;
   position: absolute;
   top: 0;
@@ -40,10 +43,11 @@ main {
 }
 
 .selected-city-shading {
-  min-height: 100vh;
+  height: 100%;
   width: 300px;
   opacity: 0.85;
   background-color: #333333;
+  overflow: auto;
   position: absolute;
   top: 0;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.5);
@@ -105,7 +109,6 @@ main {
     height: 10em;
     width: 100vw;
   }
-
   .selected-city-container {
     position: absolute;
     top: 20px;
