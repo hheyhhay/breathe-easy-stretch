@@ -1,16 +1,22 @@
 .other-cities-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   position: absolute;
-  top: 100px;
+  top: 20%;
   left: 340px;
-  width: 80vw;
-  height: 89.3vh;
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-
-  padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
-  box-sizing: content-box;
+  height: 80%;
+  /* width: 80vw; */
+  /* height: 89.3vh;  */
+  /* overflow-y: scroll; */
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-gap: 15px; */
+  /* display: flex;
+  flex-wrap: wrap;
+  padding: 10px; */
+  padding-right: 17px; 
+  /* box-sizing: content-box; */
 }
 
 ::-webkit-scrollbar {
@@ -18,7 +24,7 @@
   background: transparent;
 }
 
-@media screen and (max-width: 1475px) {
+/* @media screen and (max-width: 1475px) {
   .other-cities-container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -38,7 +44,7 @@
     width: 60vw;
   }
 }
-
+*/
 @media screen and (max-width: 480px) {
   .other-cities-container {
     top: 26em;
@@ -49,4 +55,4 @@
     height: 43vh;
     width: 95vw;
   }
-}
+} 
