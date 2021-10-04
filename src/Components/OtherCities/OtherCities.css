@@ -1,3 +1,30 @@
+.aqi-key {
+  position: absolute;
+  top: 50px;
+  left: 32vw;
+  font-size: 1em;
+}
+
+.good-aqi, .moderate-aqi, .sensitive-aqi, .unhealthy-aqi {
+  font-weight: 600;
+}
+
+.good-aqi {
+  color: #28CC2D;
+}
+
+.moderate-aqi {
+  color: yellow;
+}
+
+.sensitive-aqi {
+  color: orange;
+}
+
+.unhealthy-aqi {
+  color: red;
+}
+
 .other-cities-container {
   position: absolute;
   top: 100px;
@@ -30,12 +57,16 @@
   }
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 970px) {
   .other-cities-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 60vw;
+  }
+
+  .aqi-key {
+    display: none!important;
   }
 }
 
