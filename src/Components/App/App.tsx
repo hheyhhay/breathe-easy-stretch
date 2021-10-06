@@ -58,7 +58,7 @@ const App: React.FunctionComponent = () => {
 
   return (
     <main>
-      <img className='backdrop' alt='sunset-backdrop' src={backgroundImage}></img>
+
       <div className='darken-backdrop'></div>
       <Switch>
         <Route exact path='/'
