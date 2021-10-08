@@ -1,4 +1,4 @@
-main {
+/* main {
   width: 100vw;
 }
 
@@ -23,7 +23,7 @@ main {
   position: absolute;
   top: 0;
   z-index: -2;
-}
+} */
 
 .welcome-container {
   position: absolute;
