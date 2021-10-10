@@ -16,9 +16,11 @@
 }
 
 .error-duplicate {
-    font-size: 0.8em;
+    font-size: 0.9em;
     position: absolute;
-    top: -1.5em;
+    top: -2.5em;
+    text-align: center;
+    width: 200px;
 }
 
 select {
@@ -60,7 +62,7 @@ select {
         width: 60vw;
         font-size: 1em;
         margin-top: 5px;
-        
+
         margin-bottom: 5px;
     }
 
