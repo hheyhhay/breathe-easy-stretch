@@ -8,7 +8,6 @@ import OtherCities from '../OtherCities/OtherCities'
 import { Switch, Route, Link } from 'react-router-dom'
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls'
-import backgroundImage from '../../stretch-background.jpg'
   
 const App: React.FunctionComponent = () => {
   const [selectedCityData, setSelectedCityData] = useState<CleanData | any>(0)  
@@ -58,7 +57,6 @@ const App: React.FunctionComponent = () => {
 
   return (
     <main>
-      <div className='darken-backdrop'></div>
       <Switch>
         <Route exact path='/'
           render={() => 
@@ -102,26 +100,25 @@ const App: React.FunctionComponent = () => {
                 message={cityDataError}
               />
             :
-              <nav className='selected-city-nav'>
-                <div className='selected-city-shading'>
-                  <section className='selected-city-container'>
-                    <SelectedCity 
-                      selectedCityData={selectedCityData} 
-                      resetCityData={resetCityData}
+              <div className='selected-city-nav'>
+                <div className='selected-city-shading'></div>
+                <section className='selected-city-container'>
+                  <SelectedCity 
+                    selectedCityData={selectedCityData} 
+                    resetCityData={resetCityData}
+                    setCityDataError={setCityDataError}
+                    current={true}
+                    setSelectedCityData={setSelectedCityData}
+                  /> 
+                  </section>
+                  <div className='compare-form-container'>
+                    <Form 
+                      setCitiesError={setCitiesError}
+                      getSelectedCityData={getSelectedCityData} 
+                      duplicateCityError={duplicateCityError} 
+                      selectedCityData={selectedCityData}
                       setCityDataError={setCityDataError}
-                      current={true}
-                      setSelectedCityData={setSelectedCityData}
-                    /> 
-                    </section>
-                    <div className='compare-form-container'>
-                      <Form 
-                        setCitiesError={setCitiesError}
-                        getSelectedCityData={getSelectedCityData} 
-                        duplicateCityError={duplicateCityError} 
-                        selectedCityData={selectedCityData}
-                        setCityDataError={setCityDataError}
-                      />
-                    </div>
+                    />
                   </div>
                   <OtherCities 
                     otherCitiesData={otherCitiesData} 
@@ -134,8 +131,7 @@ const App: React.FunctionComponent = () => {
                       }
                     } 
                   />
-                  
-                </nav>
+                </div>
               }
             </>
           }
@@ -156,25 +152,24 @@ const App: React.FunctionComponent = () => {
                 <Loading />
               :
                 <nav className='selected-city-nav'>
-                  <div className='selected-city-shading'>
-                    <section className='selected-city-container'>
-                      <SelectedCity 
-                        selectedCityData={selectedCityData} 
-                        resetCityData={resetCityData}
-                        setCityDataError={setCityDataError}
-                        current={false}
-                        setSelectedCityData={setSelectedCityData}
-                      />
-                    </section>
-                    <div className='compare-form-container'>
-                      <Form 
-                        setCitiesError={setCitiesError}
-                        getSelectedCityData={getSelectedCityData} 
-                        duplicateCityError={duplicateCityError} 
-                        selectedCityData={selectedCityData}
-                        setCityDataError={setCityDataError}
-                      />
-                    </div>
+                  <div className='selected-city-shading'></div>
+                  <section className='selected-city-container'>
+                    <SelectedCity 
+                      selectedCityData={selectedCityData} 
+                      resetCityData={resetCityData}
+                      setCityDataError={setCityDataError}
+                      current={false}
+                      setSelectedCityData={setSelectedCityData}
+                    />
+                  </section>
+                  <div className='compare-form-container'>
+                    <Form 
+                      setCitiesError={setCitiesError}
+                      getSelectedCityData={getSelectedCityData} 
+                      duplicateCityError={duplicateCityError} 
+                      selectedCityData={selectedCityData}
+                      setCityDataError={setCityDataError}
+                    />
                   </div>
                   <OtherCities 
                     otherCitiesData={otherCitiesData} 
@@ -194,9 +189,9 @@ const App: React.FunctionComponent = () => {
         />
         <Route>
           <Error 
-          dataContents='AQI data for available cities in that state'
-          resetCityData={resetCityData}
-          message={citiesError}
+            dataContents='AQI data for available cities in that state'
+            resetCityData={resetCityData}
+            message={citiesError}
           />
         </Route>
       </Switch>
