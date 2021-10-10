@@ -32,16 +32,9 @@
   position: absolute;
   top: 120px;
   left: 340px;
-  height: 80%;
-  /* width: 80vw; */
-  height: 89.3vh;  
+  height: 86%;  
+  /* width: 70vw; */
   overflow-y: scroll;
-  /* display: grid; */
-  /* grid-template-columns: repeat(4, 1fr); */
-  /* grid-gap: 15px; */
-  /* display: flex;
-  flex-wrap: wrap;
-  padding: 10px; */
   padding-right: 17px; 
   /* box-sizing: content-box; */
 }
@@ -51,27 +44,6 @@
   background: transparent;
 }
 
-/* @media screen and (max-width: 1475px) {
-  .other-cities-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .other-cities-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 970px) {
-  .other-cities-container {
-
-    width: 60vw;
-  }
-
-
-}
-*/
 @media screen and (min-width: 1500px) {
   .aqi-key {
     left: 32vw;
@@ -80,16 +52,18 @@
 
 @media screen and (max-width: 570px) {
   .other-cities-container {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    top: 26em;
+    flex-wrap: nowrap;
+    z-index: 10;
+    top: 30em;
     left: 0;
     right: 0;
     margin-left: 0.6em;
     margin-right: auto;
     height: 43vh;
     width: 95vw;
+    overflow-y: scroll;
   }
 
   .aqi-key {
