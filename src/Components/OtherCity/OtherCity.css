@@ -3,6 +3,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 1px 5px rgb(0 0 0 / 0.5);
+  min-width: 300px;
   width: 17vw;
   height: 16em;
   display: flex;
@@ -54,30 +55,11 @@
   background-color: white;
   cursor: pointer;
 }
-/*
-@media screen and (max-width: 1475px) {
-  .other-city-card {
-    width: 22vw;
-  }
-}
 
-@media screen and (max-width: 1200px) {
-  .other-city-card {
-    width: 28vw;
-  }
-}
-
-@media screen and (max-width: 930px) {
-  .other-city-card {
-    width: 50vw;
-  }
-} */
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 570px) {
   .other-city-card {
     width: 93vw;
     height: 12em;
-    min-height: 11em;
     font-size: 0.7em;
     justify-content: space-between;
     text-align: center;

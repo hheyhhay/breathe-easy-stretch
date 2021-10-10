@@ -8,7 +8,6 @@ import OtherCities from '../OtherCities/OtherCities'
 import { Switch, Route, Link } from 'react-router-dom'
 import { cleanCityData, CleanData } from '../../util/dataCleaning'
 import { getCityData } from '../../apiCalls'
-import backgroundImage from '../../stretch-background.jpg'
   
 const App: React.FunctionComponent = () => {
   const [selectedCityData, setSelectedCityData] = useState<CleanData | any>(0)  
@@ -58,8 +57,6 @@ const App: React.FunctionComponent = () => {
 
   return (
     <main>
-      <img className='backdrop' alt='sunset-backdrop' src={backgroundImage}></img>
-      <div className='darken-backdrop'></div>
       <Switch>
         <Route exact path='/'
           render={() => 
@@ -103,7 +100,7 @@ const App: React.FunctionComponent = () => {
                 message={cityDataError}
               />
             :
-              <nav className='selected-city-nav'>
+              <div className='selected-city-nav'>
                 <div className='selected-city-shading'></div>
                 <section className='selected-city-container'>
                   <SelectedCity 
@@ -134,7 +131,7 @@ const App: React.FunctionComponent = () => {
                       }
                     } 
                   />
-                </nav>
+                </div>
               }
             </>
           }
@@ -192,9 +189,9 @@ const App: React.FunctionComponent = () => {
         />
         <Route>
           <Error 
-          dataContents='AQI data for available cities in that state'
-          resetCityData={resetCityData}
-          message={citiesError}
+            dataContents='AQI data for available cities in that state'
+            resetCityData={resetCityData}
+            message={citiesError}
           />
         </Route>
       </Switch>

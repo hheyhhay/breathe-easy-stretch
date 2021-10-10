@@ -6,7 +6,7 @@
     height: 200px;
     width: 280px;
     text-align: center;
-    margin: 0;
+    margin-left: 12px;
 }
 
 .location-title {
@@ -60,17 +60,18 @@
     width: 150px;
     border-radius: 15px;
     position: absolute;
-    top: 480px;
+    top: 510px;
     right: 65px;
     box-shadow: 0 1px 1px rgb(0 0 0 / 0.4);
     cursor: pointer;
     border: 0px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 570px) {
     .selected-city-card {
         width: 80vw;
     }
+
     .location-title {
         font-size: 1em;
         font-weight: 500;
@@ -117,7 +118,7 @@
         width: 60vw;
         top: 21em;
         left: 0;
-        right: 0;
+        right: 9px;
         margin-left: auto;
         margin-right: auto;
     }
