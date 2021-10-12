@@ -28,7 +28,7 @@ const OtherCities: React.FC<PropsOtherCities> = ({ otherCitiesData, deleteCityDa
   })
 
   return (
-    <div>
+    <div className='compared-cities'>
       <p className='aqi-key'>Air Quality Index (AQI) Guide: 
         <span className='good-aqi'>  Good - 0-50</span>
         <span className='moderate-aqi'>  Moderate - 51-100</span>
