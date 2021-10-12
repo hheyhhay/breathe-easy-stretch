@@ -37,3 +37,14 @@
     margin: auto;
     margin-bottom: 5%;
 }
+
+@media screen and (max-width: 570px) {
+    .error-card {
+        width: 90vw;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

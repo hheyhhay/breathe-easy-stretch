@@ -67,6 +67,10 @@
     border: 0px;
 }
 
+.home-button:hover {
+    background-color: white;
+}
+
 @media screen and (max-width: 570px) {
     .selected-city-card {
         width: 80vw;
