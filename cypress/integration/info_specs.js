@@ -66,7 +66,7 @@ describe('Form to select city to see AQI data', () => {
     })
 
   it('Should display an error message if failed to fetch data', () => {
-    cy.intercept( `https://api.airvisual.com/v2/nearest_city?key=e4f6cdec-d71a-4a7e-b4dc-e8a7f1b4fb7a`, 
+    cy.intercept( `https://api.airvisual.com/v2/nearest_city?key=bf0b892e-3be5-494f-b5ec-fcae0e92285a`, 
       {
       statusCode:500,
       })

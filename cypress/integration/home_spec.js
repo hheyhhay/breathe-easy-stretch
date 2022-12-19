@@ -19,7 +19,7 @@ describe('Form to select city to see AQI data', () => {
 
   it.only('Should display an error message if failed to fetch data', () => {
    
-    cy.intercept( `https://api.airvisual.com/v2/nearest_city?key=da479dc8-2e38-4a47-97a1-7396f6c348e1`, 
+    cy.intercept( `https://api.airvisual.com/v2/nearest_city?key=bf0b892e-3be5-494f-b5ec-fcae0e92285a`, 
       {
       statusCode: 500,
       })
@@ -29,7 +29,7 @@ describe('Form to select city to see AQI data', () => {
 
   it('Should be able to select a state and have the cities with available AQI data populated', () => {
     cy.get('.state-select').select('Colorado')
-    cy.intercept('https://api.airvisual.com/v2/cities?state=Colorado&country=USA&key=da479dc8-2e38-4a47-97a1-7396f6c348e1', {
+    cy.intercept('https://api.airvisual.com/v2/cities?state=Colorado&country=USA&key=bf0b892e-3be5-494f-b5ec-fcae0e92285a', {
       statusCode: 201,
       fixture: `selected_city_test_data.json`,
     })
